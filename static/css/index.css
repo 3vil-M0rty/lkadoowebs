@@ -514,7 +514,6 @@ html {
     box-sizing: border-box;
     padding: 0;
     border-top-right-radius: 150px;
-    border-top-left-radius: 50px;
     box-shadow: 0 20px 5px 0 rgba(0, 0, 0, 1);
     height: var(--cardHeight);
     display: grid;
@@ -536,7 +535,7 @@ html {
     justify-content: center;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.3);
-    width: 120%;
+    width: 150%;
     color: white;
 }
 
@@ -586,7 +585,7 @@ html {
 
 @media (max-width: 750px) {
     .text-container {
-        line-height: 8%;
+        line-height: 4%;
     }
 
     @keyframes fadeIN {
@@ -596,14 +595,29 @@ html {
         }
     }
 
-    #sp {
+    .card-text {
         width: 100vw;
+        padding: 20px;
+        text-align: center;
+    }
+    #sp {
+        width: 80vw;
     }
 
+    .rotate {
+        left: 65%;
+        top: 35%;
+        height: 70px;
+        width: 70px;    
+    }
     #sp-1,
     #sp-2{
-        font-size: 2.35rem !important;
+        font-size: 3.35rem !important;
         margin: 0;
+    }
+
+    #sp-2 {
+        letter-spacing: 3px;
     }
 
     .text-container span {
@@ -639,10 +653,11 @@ html {
 
     body {
         overflow-x: hidden;
+        background-color: yellow;
     }
 
     .vidrotate {
-        height: 100vh;
+        height: 140vh;
         object-fit: cover;
     }
 }
