@@ -749,9 +749,9 @@ html {
     .collab {
         position: absolute;
         bottom: -15%;
-        left: 38%;
+        left: 50%;
         transform: translateX(-50%);
-        height: 20px;
+        height: 40px;
         backdrop-filter: sepia(100%);
         object-fit: cover;
         z-index: 2;
