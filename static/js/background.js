@@ -51,3 +51,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
+
+let currentIndex = 0;
+
+document.getElementById('next').addEventListener('click', () => {
+    const slider = document.getElementById('slider');
+    const slides = document.querySelectorAll('.slide');
+    if (currentIndex < slides.length - 1) {
+        currentIndex++;
+        slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+    } else {
+        currentIndex = 0;
+        slider.style.transform = `translateX(0)`;
+    }
+});
+
+document.getElementById('prev').addEventListener('click', () => {
+    const slider = document.getElementById('slider');
+    const slides = document.querySelectorAll('.slide');
+    if (currentIndex > 0) {
+        currentIndex--;
+        slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+    } else {
+        currentIndex = slides.length - 1;
+        slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+});

@@ -1,8 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
 html,
 body {
-    font-family: "Lato",sans-serif;
+    font-family: "Lato", sans-serif;
     margin: 0;
     padding: 0;
     overflow-x: hidden;
@@ -156,7 +157,7 @@ html {
     top: 10%;
     display: flex;
     flex-direction: column;
-    
+
 }
 
 
@@ -372,14 +373,15 @@ html {
 }
 
 .wt {
-    width: 95vw;
-    height: 50vh;
-    background-color: pink;
+    width: 100vw;
+    height: 55vh;
     position: absolute;
-    top: 476.5vh;
+    top: 475.5vh;
     left: 50%;
     transform: translateX(-50%);
 }
+
+
 
 .reviews {
     display: flex;
@@ -389,6 +391,81 @@ html {
     justify-content: center;
     align-items: center;
     color: white !important;
+}
+
+.waves {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -5;
+    background: linear-gradient(-45deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 21%, rgba(230, 206, 20, 1) 41%, rgba(255, 167, 0, 1) 62%, rgba(219, 122, 18, 1) 71%, rgba(0, 0, 0, 1) 84%, rgba(0, 0, 0, 1) 100%);
+    animation: gradient 15s ease infinite;
+    background-size: 100% 100%;
+    background-attachment: fixed;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 0%;
+    }
+
+    50% {
+        background-position: 100% 100%;
+    }
+
+    100% {
+        background-position: 0% 0%;
+    }
+}
+
+.wave {
+    background: rgba(0, 0, 0, 1);
+    border-radius: 1000% 1000% 0 0;
+    position: fixed;
+    width: 200%;
+    height: 22em;
+    animation: wave 10s -3s linear infinite;
+    transform: translate3d(0, 0, 0);
+    opacity: 0.5;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.wave:nth-of-type(2) {
+    bottom: -1.25em;
+    animation: wave 18s linear reverse infinite;
+    opacity: 0.7;
+}
+
+.wave:nth-of-type(3) {
+    bottom: -2.5em;
+    animation: wave 20s -1s reverse infinite;
+    opacity: 0.8;
+}
+
+@keyframes wave {
+    2% {
+        transform: translateX(1);
+    }
+
+    25% {
+        transform: translateX(-25%);
+    }
+
+    50% {
+        transform: translateX(-50%);
+    }
+
+    75% {
+        transform: translateX(-25%);
+    }
+
+    100% {
+        transform: translateX(1);
+    }
 }
 
 @keyframes slideLEFT {
@@ -405,7 +482,7 @@ html {
     color: white;
     font-family: "Montserrat", sans-serif;
     font-weight: 600;
-    font-size: 3rem;
+    font-size: 250%;
     animation: slideLEFT linear forwards;
     animation-timeline: view();
     animation-range: 100px 500px;
@@ -437,6 +514,7 @@ html {
 .fa-star {
     color: white;
 }
+
 .checked {
     color: #FFC100;
 }
@@ -462,9 +540,9 @@ html {
     display: table;
     clear: both;
     text-align: center;
-    vertical-align:middle;
+    vertical-align: middle;
 
-    
+
 }
 
 
@@ -472,7 +550,7 @@ html {
 .row {
     position: absolute;
     top: 200px;
-    
+
 }
 
 .bar-container {
@@ -484,7 +562,7 @@ html {
     height: 5px;
     margin-top: 4px;
     margin-left: 4px;
-    
+
 }
 
 /* Individual bars */
@@ -506,7 +584,7 @@ html {
     height: 5px;
     /* background-color: #FF6500; */
     background-color: #FFC100;
-    
+
 }
 
 .bar-2 {
@@ -530,7 +608,8 @@ html {
     }
 }
 
-.side, .right {
+.side,
+.right {
     opacity: 0;
     animation: fadetxt linear forwards;
     animation-timeline: view();
@@ -538,16 +617,153 @@ html {
 }
 
 
-#bar-1, #bar-2,#bar-3,#bar-4,#bar-5{
+#bar-1,
+#bar-2,
+#bar-3,
+#bar-4,
+#bar-5 {
     opacity: 0;
     animation: fadetxt linear forwards;
     animation-timeline: view();
     animation-range: 100px 300px;
 }
+
+
+.testimonials {
+    position: absolute;
+    top: 550%;
+    height: 47vh;
+    width: 90vw;
+    left: 50%;
+    transform: translateX(-50%) scale(0);
+    opacity: 0;
+    animation: reveal linear forwards;
+    animation-timeline: view();
+    animation-range: entry;
+    transform-origin: center;
+}
+
+@keyframes reveal {
+    to {
+        transform: translateX(-50%) scale(1);
+        opacity: 1;
+    }
+}
+
+
+
+.slider-container {
+    width: 70%;
+    height: 60%;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+
+.slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    min-width: 100%;
+    box-sizing: border-box;
+    padding: 20px;
+    color: white;
+    position: relative;
+}
+
+.slide img {
+    width: 70px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 1px solid #FFC100;
+}
+
+.slide .stars {
+    position: absolute;
+    top: 110px;
+    left: 17px;
+}
+
+.treview {
+    font-size: 18px;
+    position: absolute;
+    top: 0;
+    left: 105px;
+    max-height: 150px; /* Limit the height */
+    overflow: hidden; /* Hide overflow text */
+    text-overflow: ellipsis; /* Add ellipsis */
+    display: -webkit-box;
+    -webkit-line-clamp: 6; /* Number of lines before truncating */
+    -webkit-box-orient: vertical;
+}
+
+.author {
+    font-size: 16px;
+    color: #FFC100;
+    position: absolute;
+    top: 75px;
+    left: 17px;
+}
+
+.snav {
+    position: absolute;
+    bottom: -9px;
+    right: -15px;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.snav button {
+    background-color: transparent;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: color 0.3s;
+}
+
+.aleft, .aright {
+    fill: white;
+    transition: fill 0.3s;
+}
+
+.aleft:hover, .aright:hover {
+    fill: #FFC100;
+}
+
+
+
+
 
 @media (max-width: 750px) {
     .text-container {
         line-height: 4%;
+    }
+
+    .snav {
+        position: absolute;
+        bottom: 45px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    .testimonials {
+        top: 495vh;
+        width: 100vw;
+        height: 50vh;
+    }
+
+    .waves {
+        display: none;
     }
 
     .under {
@@ -558,7 +774,7 @@ html {
         margin-top: -50%;
     }
 
-    .landing-page{
+    .landing-page {
         width: 100vw;
     }
 
@@ -578,6 +794,7 @@ html {
     .vidrotate {
         width: 100%;
     }
+
     .undertext2 {
         letter-spacing: 0px;
     }
@@ -586,7 +803,7 @@ html {
         padding: 5px;
     }
 
-    
+
 
     .card-text {
         width: 71vw;
@@ -603,8 +820,8 @@ html {
     }
 
     .rotate {
-        left: 65%;
-        top: 25%;
+        left: 75%;
+        top: 35%;
         height: 70px;
         width: 70px;
     }
@@ -646,7 +863,7 @@ html {
         width: 100vw;
         height: 50vh;
         position: absolute;
-        top: 455.4vh;
+        top: 455.7vh;
     }
 
     body {
@@ -661,28 +878,35 @@ html {
     .reviews {
         height: 100%;
     }
+
     .reviews h2 {
         color: white;
         font-family: "Montserrat", sans-serif;
         font-weight: 600;
-        font-size: 0.99rem;
+        font-size: 90%;
         text-transform: uppercase;
+        animation-range: 100px 200px;
     }
 
-    .side, .right {
+    .side,
+    .right {
         opacity: 0;
         animation: fadetxt linear forwards;
         animation-timeline: view();
         animation-range: 100px 180px;
     }
-    
-    
-    #bar-1, #bar-2,#bar-3,#bar-4,#bar-5{
+
+
+    #bar-1,
+    #bar-2,
+    #bar-3,
+    #bar-4,
+    #bar-5 {
         opacity: 0;
         animation: fadetxt linear forwards;
         animation-timeline: view();
-        animation-range: 100px 180px;
+        animation-range: 100px 140px;
     }
-    
+
 
 }
