@@ -28,5 +28,26 @@ document.addEventListener('DOMContentLoaded', () => {
         links.classList.toggle('active');
     })
 
+    const imageSources = [
+        '../../assets/images/burberry.png',
+        '../../assets/images/dolce.png',
+        '../../assets/images/givenchy.png',
+        '../../assets/images/lancome.png',
+        '../../assets/images/gucci.png'
+    ];
+
+    const collabImage = document.querySelector('.collab');
+
+    let currentIndex = 0;
+
+    function changeImageSource() {
+        collabImage.src = imageSources[currentIndex];
+
+        currentIndex = (currentIndex + 1) % imageSources.length;
+    }
+
+    setInterval(changeImageSource, 1000);
+
+
 });
 

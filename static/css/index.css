@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 html,
 body {
-    font-family: sans-serif;
+    font-family: "Lato",sans-serif;
     margin: 0;
     padding: 0;
     overflow-x: hidden;
@@ -21,38 +21,17 @@ html {
     top: 0;
     left: 0;
     width: 100vw;
+    overflow: hidden;
     height: 120vh;
     padding: 0;
     margin: 0;
 
 }
 
-/* .landing-page-bottom {
-    position: absolute;
-    bottom: -30px;
-    background-color: rgb(255, 255, 255);
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    -webkit-mask-image: url("../../assets/images/mask.png");
-    mask-image: url("../../assets/images/mask.png");
-    -webkit-mask-size: 100vw 100vh;
-    mask-size: 100% 100%;
-    -webkit-mask-repeat: repeat;
-    mask-repeat: repeat;
-    z-index: 103;
-}
- */
-@keyframes fadeOUT {
-    to {
-        box-shadow: 10px -20px 25px 30px black;
-    }
-}
-
 
 #myLinks {
-    background-color: rgb(255, 255, 255, 0.3);
-    height: 5vh;
+    background-color: rgb(0, 0, 0, 0.8);
+    height: 7vh;
     width: 100vw;
     position: fixed;
     top: 90px;
@@ -62,7 +41,7 @@ html {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    gap: 10px;
+    gap: 5px;
     font-size: 1rem;
     font-weight: bold;
     transition: .3s ease;
@@ -71,7 +50,7 @@ html {
 
 #myLinks a {
     text-decoration: none;
-    color: black;
+    color: white;
 }
 
 #myLinks.active {
@@ -107,7 +86,7 @@ html {
 .icon {
     cursor: pointer;
     margin-right: 25px;
-    border: 1px solid black;
+    border: 1px solid white;
     border-radius: 50%;
     padding: 5px;
     height: 30px;
@@ -134,7 +113,7 @@ html {
 .icon span {
     height: 3px;
     width: 25px;
-    background-color: black;
+    background-color: white;
     border-radius: 25px;
     position: absolute;
     top: 50%;
@@ -157,17 +136,29 @@ html {
 
 .rotate {
     position: absolute;
+    backdrop-filter: sepia(100%);
+    border-radius: 50%;
     left: 57%;
-    top: 17%;
+    top: 40%;
     height: 120px;
     width: 120px;
     animation: rotate 10s linear infinite;
 }
 
 .vidrotate {
-    width: 100vw;
+    width: 100%;
     object-fit: cover;
 }
+
+.up {
+    position: absolute;
+    height: 50vh;
+    top: 10%;
+    display: flex;
+    flex-direction: column;
+    
+}
+
 
 @keyframes rotate {
     to {
@@ -175,9 +166,55 @@ html {
     }
 }
 
+.under {
+    display: flex;
+    margin-left: 0.5%;
+    margin-top: -2%;
+}
+
+.undertext,
+.undertext2 {
+    color: white;
+    font-family: "Montserrat", sans-serif;
+}
+
+.undertext2 {
+    letter-spacing: 5.5px;
+}
+
+
+
+.landingbutton {
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+    left: 37%;
+    width: 300px;
+    text-align: center;
+    border-radius: 25px;
+    text-decoration: none;
+    padding: 10px;
+    z-index: 202;
+    transition: all 0.3s linear;
+}
+
+
+.landingbutton:hover {
+    background-color: black;
+}
+
+.collab {
+    position: absolute;
+    bottom: -30%;
+    left: 55%;
+    transform: translateX(-50%);
+    height: 50px;
+    object-fit: cover;
+    z-index: 2;
+}
 
 .text-container {
-    color: black;
+    color: white;
     font-family: "Montserrat", sans-serif;
     font-weight: 900;
     font-size: 9rem;
@@ -186,262 +223,28 @@ html {
     height: 100vh;
     display: flex;
     line-height: 69.9%;
-    position: absolute;
-    top: 0;
-    left: 0;
     justify-content: flex-start;
     align-items: center;
     user-select: none;
     text-transform: uppercase;
 }
 
-/* .text-container span {
-    margin-left: 10%;
-    margin-top: 10%;
-} */
-
-@keyframes fadeIN {
-    to {
-        opacity: 1;
-        font-size: 9rem;
-    }
-}
-
-@keyframes jello {
-	0% {
-		transform: scale3d(1, 1, 1);
-	}
-
-	30% {
-		transform: scale3d(1.25, 0.75, 1);
-	}
-
-	40% {
-		transform: scale3d(0.75, 1.25, 1);
-	}
-
-	50% {
-		transform: scale3d(1.15, 0.85, 1);
-	}
-
-	65% {
-		transform: scale3d(0.95, 1.05, 1);
-	}
-
-	75% {
-		transform: scale3d(1.05, 0.95, 1);
-	}
-
-	100% {
-		transform: scale3d(1, 1, 1);
-	}
-}
-
-
-
-.text-container {
-    animation: jello 3s cubic-bezier(0.37, 0, 0.63, 1) 0s 1 normal forwards;
-}
-#sp-2{
-    animation: fadeIN 2s cubic-bezier(0.37, 0, 0.63, 1) 3s 1 normal forwards;
-}
- 
 #sp-2 {
     letter-spacing: 11px;
 }
 
-/*
-#sp-3 {
-    margin-left: 25%;
-}
- */
-
-
-:root {
-    --color-bg1: rgb(0, 0, 0);
-    --color-bg2: rgb(219, 217, 80);
-    /* --color1: 166, 124, 0;
-    --color2: 191, 155, 48;
-    --color3: 255, 191, 0;
-    --color4: 255, 207, 64;
-    --color5: 255, 220, 115; */
-    --color1: 219, 217, 80;
-    --color2: 219, 217, 80;
-    --color3: 219, 217, 80;
-    --color4: 219, 217, 80;
-    --color5: 219, 217, 80;
-    --color-interactive: 255, 255, 255;
-    --circle-size: 80%;
-    --blending: hard-light;
-}
-
-@keyframes moveInCircle {
-    0% {
-        transform: rotate(0deg);
-    }
-
-    50% {
-        transform: rotate(180deg);
-    }
-
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
-@keyframes moveVertical {
-    0% {
-        transform: translateY(-50%);
-    }
-
-    50% {
-        transform: translateY(50%);
-    }
-
-    100% {
-        transform: translateY(-50%);
-    }
-}
-
-@keyframes moveHorizontal {
-    0% {
-        transform: translateX(-50%) translateY(-10%);
-    }
-
-    50% {
-        transform: translateX(50%) translateY(10%);
-    }
-
-    100% {
-        transform: translateX(-50%) translateY(-10%);
-    }
-}
-
-
-.gradient-bg {
-    width: 100vw;
-    height: 100%;
-    position: relative;
-    overflow: hidden;
-    background: rgb(255, 255, 255);
-    top: 0;
-    left: 0;
-
-
-    svg {
-        display: none;
-    }
-
-
-    .gradients-container {
-        filter: url(#goo) blur(40px);
-        width: 100%;
-        height: 100%;
-
-    }
-
-    .g1 {
-        position: absolute;
-        background: radial-gradient(circle at center, rgba(var(--color1), 0.8) 0, rgba(var(--color1), 0) 50%) no-repeat;
-        mix-blend-mode: var(--blending);
-
-        width: var(--circle-size);
-        height: var(--circle-size);
-        top: calc(50% - var(--circle-size) / 2);
-        left: calc(50% - var(--circle-size) / 2);
-
-        transform-origin: center center;
-        animation: moveVertical 10s ease infinite;
-
-        opacity: 1;
-    }
-
-    .g2 {
-        position: absolute;
-        background: radial-gradient(circle at center, rgba(var(--color2), 0.8) 0, rgba(var(--color2), 0) 50%) no-repeat;
-        mix-blend-mode: var(--blending);
-
-        width: 100%;
-        height: 100%;
-        top: calc(50% - var(--circle-size) / 2);
-        left: calc(50% - var(--circle-size) / 2 + 20%);
-
-        transform-origin: calc(50% - 400px);
-        animation: moveInCircle 15s reverse infinite;
-
-        opacity: 1;
-    }
-
-    .g3 {
-        position: absolute;
-        background: radial-gradient(circle at center, rgba(var(--color3), 0.8) 0, rgba(var(--color3), 0) 50%) no-repeat;
-        mix-blend-mode: var(--blending);
-
-        width: var(--circle-size);
-        height: var(--circle-size);
-        top: calc(50% - var(--circle-size) / 2 + 200px);
-        left: calc(50% - var(--circle-size) / 2 - 500px);
-
-        transform-origin: calc(50% + 400px);
-        animation: moveInCircle 7s linear infinite;
-
-        opacity: 1;
-    }
-
-    .g4 {
-        position: absolute;
-        background: radial-gradient(circle at center, rgba(var(--color4), 0.8) 0, rgba(var(--color4), 0) 50%) no-repeat;
-        mix-blend-mode: var(--blending);
-
-        width: var(--circle-size);
-        height: var(--circle-size);
-        top: calc(50% - var(--circle-size) / 2);
-        left: calc(50% - var(--circle-size) / 2);
-
-        transform-origin: calc(50% - 200px);
-        animation: moveHorizontal 40s ease infinite;
-
-        opacity: 0.7;
-    }
-
-    .g5 {
-        position: absolute;
-        background: radial-gradient(circle at center, rgba(var(--color5), 0.8) 0, rgba(var(--color5), 0) 50%) no-repeat;
-        mix-blend-mode: var(--blending);
-
-        width: calc(var(--circle-size) * 2);
-        height: calc(var(--circle-size) * 2);
-        top: calc(50% - var(--circle-size));
-        left: calc(50% - var(--circle-size));
-
-        transform-origin: calc(50% - 800px) calc(50% + 200px);
-        animation: moveInCircle 20s ease infinite;
-
-        opacity: 1;
-    }
-
-    .interactive {
-        position: absolute;
-        background: radial-gradient(circle at center, rgba(219, 217, 80, 0.8) 0, rgba(var(--color-interactive), 0) 50%) no-repeat;
-        mix-blend-mode: var(--blending);
-
-        width: 100%;
-        height: 100%;
-        top: -50%;
-        left: -50%;
-
-        opacity: 0.7;
-    }
-}
 
 .container {
     height: 100vh;
-    width: 100vw;
+    width: 90vw;
     position: absolute;
     top: 100vh;
+    left: 50%;
+    transform: translateX(-50%);
     z-index: 105;
+    margin: 0;
+    padding: 0;
 }
-
 
 
 :root {
@@ -451,16 +254,11 @@ html {
     --cardMargin: 4vw;
 }
 
-.container {
-    width: 100vw;
-    margin: 0;
-    padding: 0;
-}
 
 #cards {
     list-style: none;
     padding-left: 0;
-    width: 100vw;
+    width: 100%;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: repeat(var(--cards), var(--cardHeight));
@@ -469,17 +267,12 @@ html {
     margin-bottom: var(--cardMargin);
 }
 
-@keyframes fade {
-    to {
-        scale: 0.7;
-    }
-}
 
 #card1,
 #card2,
 #card3,
 #card4 {
-    width: 95vw;
+    width: 100%;
     justify-self: center;
 }
 
@@ -502,19 +295,18 @@ html {
 .card {
     position: sticky;
     top: 0;
-    /* 
-    background-color: white;
-    border-top-right-radius: 150px; */
     padding-top: calc(var(--index) * var(--cardTopPadding));
     overflow: hidden;
 }
+
+
 
 
 .card-body {
     box-sizing: border-box;
     padding: 0;
     border-top-right-radius: 150px;
-    box-shadow: 0 20px 5px 0 rgba(0, 0, 0, 1);
+    border-top-left-radius: 20px;
     height: var(--cardHeight);
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -526,9 +318,9 @@ html {
     transition: all 2s;
 }
 
+
 .card-text {
     padding: 10px;
-    column-span: 2;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -551,11 +343,12 @@ html {
     background-color: transparent;
     padding: 10px;
     border-radius: 20px;
+    transition: all 0.3s ease-in-out;
 }
 
 .card-text a:hover {
     transform: translateY(-2px);
-    transition: all 0.3s ease-in-out;
+    background-color: black;
 }
 
 .card-video video {
@@ -574,44 +367,250 @@ html {
 }
 
 
-.wt {
-    width: 100vw;
-    height: 100vh;
-    background-color: red;
-    position: absolute;
-    top: 476.5vh;
+.activetab {
+    color: rgb(168, 146, 18) !important;
 }
 
+.wt {
+    width: 95vw;
+    height: 50vh;
+    background-color: pink;
+    position: absolute;
+    top: 476.5vh;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.reviews {
+    display: flex;
+    position: relative;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white !important;
+}
+
+@keyframes slideLEFT {
+    to {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+.reviews h2 {
+    left: -100%;
+    top: 10px;
+    position: absolute;
+    color: white;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    font-size: 3rem;
+    animation: slideLEFT linear forwards;
+    animation-timeline: view();
+    animation-range: 100px 500px;
+}
+
+.reviews-head {
+    position: absolute;
+    top: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.stars {
+    display: flex;
+}
+
+.heading {
+    font-size: 25px;
+    margin-right: 25px;
+}
+
+.fa {
+    font-size: 25px;
+}
+
+.fa-star {
+    color: white;
+}
+.checked {
+    color: #FFC100;
+}
+
+.side {
+    float: left;
+    width: 15%;
+    margin-top: 10px;
+}
+
+.middle {
+    float: left;
+    width: 70%;
+    margin-top: 15px;
+}
+
+.right {
+    text-align: right;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+    text-align: center;
+    vertical-align:middle;
+
+    
+}
+
+
+
+.row {
+    position: absolute;
+    top: 200px;
+    
+}
+
+.bar-container {
+    width: 100%;
+    background-color: #f1f1f1;
+    text-align: center;
+    color: white;
+    border-radius: 50px;
+    height: 5px;
+    margin-top: 4px;
+    margin-left: 4px;
+    
+}
+
+/* Individual bars */
+.bar-5 {
+    width: 60%;
+    height: 5px;
+    background-color: #FFC100;
+}
+
+.bar-4 {
+    width: 30%;
+    height: 5px;
+    /* background-color: #FF8A08; */
+    background-color: #FFC100;
+}
+
+.bar-3 {
+    width: 10%;
+    height: 5px;
+    /* background-color: #FF6500; */
+    background-color: #FFC100;
+    
+}
+
+.bar-2 {
+    width: 10%;
+    height: 5px;
+    /* background-color: #C40C0C; */
+    background-color: #FFC100;
+}
+
+.bar-1 {
+    width: 15%;
+    height: 5px;
+    /* background-color: #f44336; */
+    background-color: #FFC100;
+}
+
+
+@keyframes fadetxt {
+    to {
+        opacity: 1;
+    }
+}
+
+.side, .right {
+    opacity: 0;
+    animation: fadetxt linear forwards;
+    animation-timeline: view();
+    animation-range: 100px 300px;
+}
+
+
+#bar-1, #bar-2,#bar-3,#bar-4,#bar-5{
+    opacity: 0;
+    animation: fadetxt linear forwards;
+    animation-timeline: view();
+    animation-range: 100px 300px;
+}
 
 @media (max-width: 750px) {
     .text-container {
         line-height: 4%;
     }
 
-    @keyframes fadeIN {
-        to {
-            opacity: 1;
-            font-size: 4.35rem;
-        }
+    .under {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-left: 2%;
+        margin-top: -50%;
     }
 
-    .card-text {
+    .landing-page{
         width: 100vw;
-        padding: 20px;
-        text-align: center;
     }
+
+    .ut {
+        width: 90%;
+    }
+
+    .undertext,
+    .undertext2 {
+        color: white;
+        font-family: "Montserrat", sans-serif;
+        font-weight: 400;
+        width: 90%;
+        z-index: 2;
+    }
+
+    .vidrotate {
+        width: 100%;
+    }
+    .undertext2 {
+        letter-spacing: 0px;
+    }
+
+    .landingbutton {
+        padding: 5px;
+    }
+
+    
+
+    .card-text {
+        width: 71vw;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+
+    }
+
     #sp {
         width: 80vw;
     }
 
     .rotate {
         left: 65%;
-        top: 35%;
+        top: 25%;
         height: 70px;
-        width: 70px;    
+        width: 70px;
     }
+
     #sp-1,
-    #sp-2{
+    #sp-2 {
         font-size: 3.35rem !important;
         margin: 0;
     }
@@ -628,36 +627,62 @@ html {
     #myLinks {
         font-size: 1.20rem;
         flex-direction: column;
-        height: 50vh;
+        height: 75vh;
         gap: 2px;
         justify-content: none;
         padding: 0;
-        background-color: rgba(255, 255, 255, 0.8);
+        background-color: rgba(0, 0, 0, 0.9);
     }
 
     #card1,
     #card2,
     #card3,
     #card4 {
-        width: 100vw;
+        width: 80vw;
         justify-self: center;
     }
 
     .wt {
         width: 100vw;
-        height: 100vh;
-        background-color: red;
+        height: 50vh;
         position: absolute;
         top: 455.4vh;
     }
 
     body {
-        overflow-x: hidden;
-        background-color: yellow;
+        overflow-x: hidden !important;
     }
 
     .vidrotate {
         height: 140vh;
         object-fit: cover;
     }
+
+    .reviews {
+        height: 100%;
+    }
+    .reviews h2 {
+        color: white;
+        font-family: "Montserrat", sans-serif;
+        font-weight: 600;
+        font-size: 0.99rem;
+        text-transform: uppercase;
+    }
+
+    .side, .right {
+        opacity: 0;
+        animation: fadetxt linear forwards;
+        animation-timeline: view();
+        animation-range: 100px 180px;
+    }
+    
+    
+    #bar-1, #bar-2,#bar-3,#bar-4,#bar-5{
+        opacity: 0;
+        animation: fadetxt linear forwards;
+        animation-timeline: view();
+        animation-range: 100px 180px;
+    }
+    
+
 }
