@@ -746,6 +746,17 @@ html {
         line-height: 4%;
     }
 
+    .collab {
+        position: absolute;
+        bottom: -15%;
+        left: 38%;
+        transform: translateX(-50%);
+        height: 20px;
+        backdrop-filter: sepia(100%);
+        object-fit: cover;
+        z-index: 2;
+    }
+
     .snav {
         position: absolute;
         bottom: 45px;
@@ -754,6 +765,10 @@ html {
         display: flex;
         justify-content: center;
         margin-top: 20px;
+    }
+
+    .slider-container {
+        width: 90%;
     }
 
     .testimonials {
