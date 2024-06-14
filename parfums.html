@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parfumerie Maroc - Parfums, Soins, Maquillage & Cadeaux | LKADOO</title>
+    <link rel="stylesheet" href="static/css/products.css">
+    <link rel="icon" type="image/x-icon" href="assets/images/icon-black.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <script type="module" src="static/js/products.js"></script>
+</head>
+
+<body>
+    <nav class="navbar" aria-label="Main Navigation">
+        <a href="index.html">
+            <img src="assets/images/icon.png" alt="LKADOO logo" role="img">
+        </a>
+        <div class="shopping-cart">
+            <i class="fa-solid fa-cart-shopping fa-xl"></i>
+            <span class="cart-count">0</span>
+        </div>
+        <button class="icon" aria-label="Toggle navigation menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div id="myLinks" role="navigation">
+            <a href="#acceuil">Acceuil</a>
+            <a href="#news" class="activetab">Parfums</a>
+            <a href="#contact">Coffrets</a>
+            <a href="#about">Maquillages</a>
+            <a href="#about">Soins capillaires</a>
+        </div>
+    </nav>
+
+    <div class="products"></div>
+    <div class="pagination">
+        <button id="prev-page" class="page-btn">Previous</button>
+        <div id="page-numbers"></div>
+        <button id="next-page" class="page-btn">Next</button>
+    </div>
+
+    <div id="product-detail" class="product-detail"></div>
+
+    <footer>
+        <div class="footer-top">
+            <div class="footer-columns">
+                <div class="footer-column">
+                    <i class="fa-solid fa-phone fa-beat-fade" style="--fa-beat-fade-opacity: 0.1; --fa-beat-fade-scale: 1.25;"></i>
+                    <p><strong>Assistance en ligne</strong><br>24h/24 et 7j/7<br>On vous écoute</p>
+                </div>
+                <div class="footer-column">
+                    <i class="fa-solid fa-rotate-left fa-spin"></i>
+                    <p><strong>Retour sous 14 jours</strong><br>Achetez en toute confiance</p>
+                </div>
+                <div class="footer-column">
+                    <i class="fa-regular fa-credit-card fa-flip"  style="--fa-animation-duration: 3s;"></i>
+                    <p><strong>Paiements Sécurisés</strong><br>Payer en toute sérénité</p>
+                </div>
+                <div class="footer-column">
+                    <i class="fa-solid fa-truck-fast fa-bounce"></i>             
+                    <p><strong>Expédition rapide</strong><br>Livraison à 35 dhs partout au Maroc Casablanca 20 Dhs</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <img src="assets/images/icon.png" alt="Lkadoo Logo">
+            <div class="footer-links">
+                <a href="#">Livraison</a>
+                <a href="#">Moyens de Paiement</a>
+                <a href="#">Emballage Cadeau</a>
+                <a href="#">Conditions de Retour</a>
+            </div>
+            <div class="footer-social">
+                <p>Suivez Nous Sur</p>
+                <div>
+                    <a href="https://web.facebook.com/lkadoo.shopping?_rdc=1&_rdr"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/parfumerie_lkadoo/"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@lkadooboutique?lang=fr"><i class="fa-brands fa-tiktok"></i></a>
+                </div>
+            </div>
+            <p>Copyright © tous les droits sont réservés à Lkadoo.ma</p>
+        </div>
+        <button class="back-to-top">
+            <i class="fa fa-arrow-up"></i>
+        </button>
+    </footer>
+</body>
+
+</html>
