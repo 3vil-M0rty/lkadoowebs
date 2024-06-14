@@ -8,7 +8,7 @@ body {
     padding: 0;
     overflow-x: hidden;
     background-color: black;
-    min-height: 4500px;
+ 
 }
 
 
@@ -16,6 +16,94 @@ body {
 html {
     scroll-behavior: smooth;
 }
+
+
+footer {
+    width: 100%; /* Ensure the footer takes the full width of the page */
+    position: absolute;
+    top: 600vh;
+    background-color: black; /* Your desired footer background color */
+    color: white; /* Your desired footer text color */
+    text-align: center;
+    padding: 20px 0; /* Adjust as needed */
+}
+
+
+.footer-top {
+    background-color: #ffbf009d;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-columns {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.footer-column {
+    flex: 1;
+    padding: 10px;
+}
+
+.footer-column p {
+    margin: 0;
+}
+
+.footer-bottom {
+    padding: 20px;
+    text-align: center;
+}
+
+.footer-bottom img {
+    margin-bottom: 20px;
+}
+
+.footer-links {
+    display: flex;
+    padding-block: 10px;
+    border-bottom: 1px solid white;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.footer-links a {
+    margin: 0 10px;
+    color: white;
+}
+
+.footer-social {
+    margin: 20px 0;
+}
+
+.footer-social a {
+    color: white;
+    margin: 0 5px;
+}
+
+footer img {
+    height: 80px;
+}
+
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    z-index: 1100;
+}
+
+.back-to-top i {
+    color: black;
+}
+
+
+
 
 .landing-page {
     position: absolute;
@@ -88,10 +176,10 @@ html {
     cursor: pointer;
     margin-right: 25px;
     border: 1px solid white;
+    background-color: transparent; 
     border-radius: 50%;
-    padding: 5px;
-    height: 30px;
-    width: 30px;
+    height: 35px;
+    width: 35px;
     position: relative;
     transition: .3s ease;
 }
@@ -168,9 +256,11 @@ html {
 }
 
 .under {
+    position: absolute;
     display: flex;
-    margin-left: 0.5%;
-    margin-top: -2%;
+    top: 57%;
+    left: 1%;
+    align-items: center;
 }
 
 .undertext,
@@ -181,6 +271,7 @@ html {
 
 .undertext2 {
     letter-spacing: 5.5px;
+    margin-top: -12px;
 }
 
 
@@ -191,12 +282,13 @@ html {
     color: white;
     left: 37%;
     width: 300px;
+    height: 20px;
     text-align: center;
     border-radius: 25px;
     text-decoration: none;
     padding: 10px;
     z-index: 202;
-    transition: all 0.3s linear;
+    transition: all 0.5s linear;
 }
 
 
@@ -206,10 +298,12 @@ html {
 
 .collab {
     position: absolute;
-    bottom: -30%;
-    left: 55%;
-    transform: translateX(-50%);
     height: 50px;
+    bottom: 25vh;
+    right: 5vw;
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    filter: invert(20%);
     object-fit: cover;
     z-index: 2;
 }
@@ -217,13 +311,14 @@ html {
 .text-container {
     color: white;
     font-family: "Montserrat", sans-serif;
+    position: absolute;
     font-weight: 900;
-    font-size: 9rem;
+    font-size: 4.45rem;
     z-index: 100;
     width: 100vw;
     height: 100vh;
     display: flex;
-    line-height: 69.9%;
+    line-height: 138%;
     justify-content: flex-start;
     align-items: center;
     user-select: none;
@@ -306,6 +401,8 @@ html {
 .card-body {
     box-sizing: border-box;
     padding: 0;
+    background-color: black;
+    z-index: -3;
     border-top-right-radius: 150px;
     border-top-left-radius: 20px;
     height: var(--cardHeight);
@@ -686,7 +783,8 @@ html {
 .slide .stars {
     position: absolute;
     top: 110px;
-    left: 17px;
+    left: 5px;
+    scale: 0.5;
 }
 
 .treview {
@@ -706,7 +804,7 @@ html {
     font-size: 16px;
     color: #FFC100;
     position: absolute;
-    top: 75px;
+    top: 90px;
     left: 17px;
 }
 
@@ -741,20 +839,21 @@ html {
 
 
 
+
 @media (max-width: 750px) {
     .text-container {
         line-height: 4%;
+        left: 4%;
     }
 
     .collab {
         position: absolute;
-        bottom: -15%;
-        left: 50%;
-        transform: translateX(-50%);
         height: 40px;
-        backdrop-filter: sepia(100%);
         object-fit: cover;
         z-index: 2;
+        right: 50%;
+        filter: invert(100%);
+        transform: translateX(50%);
     }
 
     .snav {
@@ -775,6 +874,7 @@ html {
         top: 495vh;
         width: 100vw;
         height: 50vh;
+        margin-top: 25px;
     }
 
     .waves {
@@ -785,8 +885,8 @@ html {
         display: flex;
         flex-direction: column;
         gap: 10px;
-        margin-left: 2%;
-        margin-top: -50%;
+        top: 47%;
+        left: 0%;        
     }
 
     .landing-page {
@@ -836,7 +936,7 @@ html {
 
     .rotate {
         left: 75%;
-        top: 35%;
+        top: 39%;
         height: 70px;
         width: 70px;
     }
@@ -923,5 +1023,7 @@ html {
         animation-range: 100px 140px;
     }
 
-
+    footer {
+        top: 530vh;
+    }
 }

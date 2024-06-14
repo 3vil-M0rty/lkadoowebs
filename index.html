@@ -7,47 +7,48 @@
     <title>Parfumerie Maroc - Parfums, Soins, Maquillage & Cadeaux | LKADOO</title>
     <link rel="stylesheet" href="static/css/index.css">
     <link rel="icon" type="image/x-icon" href="assets/images/icon-black.png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <script type="module" src="static/js/background.js"></script>
 </head>
 
 <body>
-    <div class="landing-page">
-        <div id="myLinks">
+    <nav class="navbar" aria-label="Main Navigation">
+        <a href="index.html">
+            <img src="assets/images/icon.png" alt="LKADOO logo" role="img">
+        </a>
+        <button class="icon" aria-label="Toggle navigation menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div id="myLinks" role="navigation">
             <a href="#acceuil" class="activetab">Acceuil</a>
             <a href="#news">Parfums</a>
             <a href="#contact">Coffrets</a>
             <a href="#about">Maquillages</a>
             <a href="#about">Soins capillaires</a>
         </div>
-        <div class="navbar">
-            <a href="index.html"><img src="assets/images/icon.png" alt=""></a>
-            <div class="icon">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-        <div class="up">
-            <div class="text-container">
-                <span id="sp"><span id="sp-1">élégance</span><br> <span id="sp-2">des sens</span><br></span>
-            </div>
-            <div class="under">
-                <div class="ut">
-                    <span class="undertext">Découvrez nos parfums envoûtants pour toutes les occasions.</span><br>
-                    <span class="undertext2">Choisissez celui qui vous correspond.</span>
-                </div>
-                <a class="landingbutton" href="products.html">Découvrez nos offres spéciales</a>
-            </div>
-            <img src="assets/images/gucci.png" alt="" class="collab">
-        </div>
+    </nav>
 
-        <img class="rotate" src="assets/images/rotate.png" alt="">
-        <video class="vidrotate" src="assets/images/vidrotate.mp4" autoplay muted loop></video>
-        <div class="masko"></div>
-    </div>
-    <div class="container">
-        <ul id="cards">
+    <header class="landing-page" role="banner">
+        <div class="text-container">
+            <h1 id="sp"><span id="sp-1">Élégance</span><br> <span id="sp-2">des sens</span></h1>
+        </div>
+        <div class="under">
+            <div class="ut">
+                <p class="undertext">Découvrez nos parfums envoûtants pour toutes les occasions.</p>
+                <p class="undertext2">Choisissez celui qui vous correspond.</p>
+            </div>
+            <a class="landingbutton" href="products.html">Découvrez nos offres spéciales</a>
+        </div>
+        <img src="assets/images/gucci.png" alt="Gucci collaboration" class="collab" role="img">
+        <img class="rotate" src="assets/images/rotate.png" alt="Rotate icon" role="img">
+        <video class="vidrotate" src="assets/images/vidrotate.mp4" autoplay muted loop
+            aria-label="Rotating video"></video>
+    </header>
+
+    <main class="container">
+        <ul id="cards" role="list">
             <li class="card" id="card1">
                 <div class="card-body">
                     <div class="card-text">
@@ -57,9 +58,9 @@
                         <a href="#">voir la collection</a>
                     </div>
                     <div class="card-video">
-                        <video src="assets/images/women.mp4" autoplay loop muted></video>
+                        <video src="assets/images/women1.mp4" autoplay loop muted
+                            aria-label="Parfums pour femme"></video>
                     </div>
-
                 </div>
             </li>
             <li class="card" id="card2">
@@ -72,7 +73,7 @@
                         <a href="#">voir la collection</a>
                     </div>
                     <div class="card-video">
-                        <video src="assets/images/men.mp4" autoplay loop muted></video>
+                        <video src="assets/images/men.mp4" autoplay loop muted aria-label="Parfums pour homme"></video>
                     </div>
                 </div>
             </li>
@@ -86,7 +87,7 @@
                         <a href="#">voir la collection</a>
                     </div>
                     <div class="card-video">
-                        <video src="assets/images/makeup.mp4" autoplay loop muted></video>
+                        <video src="assets/images/makeup1.mp4" autoplay loop muted aria-label="Maquillage"></video>
                     </div>
                 </div>
             </li>
@@ -100,17 +101,18 @@
                         <a href="#">voir la collection</a>
                     </div>
                     <div class="card-video">
-                        <video src="assets/images/soins.mp4" autoplay loop muted></video>
+                        <video src="assets/images/soins.mp4" autoplay loop muted aria-label="Soins Capillaires"></video>
                     </div>
                 </div>
             </li>
         </ul>
-    </div>
-    <div class="wt">
+    </main>
+
+    <section class="wt" role="complementary">
         <div class="reviews">
             <h2>Les avis de nos clients</h2>
             <div class="reviews-head">
-                <div class="stars">
+                <div class="stars" aria-label="Customer rating 4.1 out of 5 stars">
                     <span class="fa fa-star checked"></span>
                     <span class="fa fa-star checked"></span>
                     <span class="fa fa-star checked"></span>
@@ -121,13 +123,12 @@
             </div>
 
             <div class="row">
-
                 <div class="side">
                     <div>5 star</div>
                 </div>
                 <div class="middle" id="bar-5">
                     <div class="bar-container">
-                        <div class="bar-5"></div>
+                        <div class="bar-5" aria-label="150 five-star reviews"></div>
                     </div>
                 </div>
                 <div class="side right">
@@ -139,7 +140,7 @@
                 </div>
                 <div class="middle" id="bar-4">
                     <div class="bar-container">
-                        <div class="bar-4"></div>
+                        <div class="bar-4" aria-label="63 four-star reviews"></div>
                     </div>
                 </div>
                 <div class="side right">
@@ -150,7 +151,7 @@
                 </div>
                 <div class="middle" id="bar-3">
                     <div class="bar-container">
-                        <div class="bar-3"></div>
+                        <div class="bar-3" aria-label="15 three-star reviews"></div>
                     </div>
                 </div>
                 <div class="side right">
@@ -161,7 +162,7 @@
                 </div>
                 <div class="middle" id="bar-2">
                     <div class="bar-container">
-                        <div class="bar-2"></div>
+                        <div class="bar-2" aria-label="6 two-star reviews"></div>
                     </div>
                 </div>
                 <div class="side right">
@@ -172,85 +173,133 @@
                 </div>
                 <div class="middle" id="bar-1">
                     <div class="bar-container">
-                        <div class="bar-1"></div>
+                        <div class="bar-1" aria-label="20 one-star reviews"></div>
                     </div>
                 </div>
                 <div class="side right">
                     <div>20</div>
                 </div>
             </div>
-            <div class="waves">
+            <div class="waves" aria-hidden="true">
                 <div class="wave"></div>
                 <div class="wave"></div>
                 <div class="wave"></div>
             </div>
         </div>
-    </div>
-    <div class="testimonials">
+    </section>
+
+    <section class="testimonials">
         <div class="slider-container">
             <div class="slider" id="slider">
                 <div class="slide">
-                    <img src="assets/images/rev1.jpg" alt="">
-                    <div class="stars">
+                    <img src="assets/images/rev1.jpg" alt="Customer review by Mouna">
+                    <div class="stars" aria-label="4 out of 5 stars">
                         <span class="fa fa-star checked"></span>
                         <span class="fa fa-star checked"></span>
                         <span class="fa fa-star checked"></span>
                         <span class="fa fa-star checked"></span>
                         <span class="fa fa-star"></span>
                     </div>
-                    <p class="treview">"J'ai acheté un rouge à lèvres et un mascara sur ce site et je suis ravie de mes
-                        achats. Les produits sont de grande qualité et j'ai reçu beaucoup de compliments depuis que je
-                        les ai utilisés. La livraison était rapide et le service client était très réactif lorsque j'ai
-                        eu une question sur ma commande. Je recommande vivement ce site pour tous ceux qui cherchent des
-                        produits de maquillage de qualité."</p>
-                    <p class="author">- Mouna</p>
+                    <blockquote class="treview">"J'ai acheté un rouge à lèvres et un mascara sur ce site et je suis
+                        ravie de mes achats. Les produits sont de grande qualité et j'ai reçu beaucoup de compliments
+                        depuis que je les ai utilisés. La livraison était rapide et le service client était très réactif
+                        lorsque j'ai eu une question sur ma commande. Je recommande vivement ce site pour tous ceux qui
+                        cherchent des produits de maquillage de qualité."</blockquote>
+                    <cite class="author">- Mouna</cite>
                 </div>
                 <div class="slide">
-                    <img src="assets/images/rev1.jpg" alt="">
-                    <div class="stars">
+                    <img src="assets/images/rev1.jpg" alt="Customer review by Mouna">
+                    <div class="stars" aria-label="4 out of 5 stars">
                         <span class="fa fa-star checked"></span>
                         <span class="fa fa-star checked"></span>
                         <span class="fa fa-star checked"></span>
                         <span class="fa fa-star checked"></span>
                         <span class="fa fa-star"></span>
                     </div>
-                    <p class="treview">"J'ai acheté un rouge à lèvres et un mascara sur ce site et je suis ravie de mes
-                        achats. Les produits sont de grande qualité et j'ai reçu beaucoup de compliments depuis que je
-                        les ai utilisés. La livraison était rapide et le service client était très réactif lorsque j'ai
-                        eu une question sur ma commande. Je recommande vivement ce site pour tous ceux qui cherchent des
-                        produits de maquillage de qualité."</p>
-                    <p class="author">- Mouna</p>
+                    <blockquote class="treview">"J'ai acheté un rouge à lèvres et un mascara sur ce site et je suis
+                        ravie de mes achats. Les produits sont de grande qualité et j'ai reçu beaucoup de compliments
+                        depuis que je les ai utilisés. La livraison était rapide et le service client était très réactif
+                        lorsque j'ai eu une question sur ma commande. Je recommande vivement ce site pour tous ceux qui
+                        cherchent des produits de maquillage de qualité."</blockquote>
+                    <cite class="author">- Mouna</cite>
                 </div>
                 <div class="slide">
-                    <img src="assets/images/rev1.jpg" alt="">
-                    <div class="stars">
+                    <img src="assets/images/rev1.jpg" alt="Customer review by Mouna">
+                    <div class="stars" aria-label="4 out of 5 stars">
                         <span class="fa fa-star checked"></span>
                         <span class="fa fa-star checked"></span>
                         <span class="fa fa-star checked"></span>
                         <span class="fa fa-star checked"></span>
                         <span class="fa fa-star"></span>
                     </div>
-                    <p class="treview">"J'ai acheté un rouge à lèvres et un mascara sur ce site et je suis ravie de mes
-                        achats. Les produits sont de grande qualité et j'ai reçu beaucoup de compliments depuis que je
-                        les ai utilisés. La livraison était rapide et le service client était très réactif lorsque j'ai
-                        eu une question sur ma commande. Je recommande vivement ce site pour tous ceux qui cherchent des
-                        produits de maquillage de qualité."</p>
-                    <p class="author">- Mouna</p>
+                    <blockquote class="treview">"J'ai acheté un rouge à lèvres et un mascara sur ce site et je suis
+                        ravie de mes achats. Les produits sont de grande qualité et j'ai reçu beaucoup de compliments
+                        depuis que je les ai utilisés. La livraison était rapide et le service client était très réactif
+                        lorsque j'ai eu une question sur ma commande. Je recommande vivement ce site pour tous ceux qui
+                        cherchent des produits de maquillage de qualité."</blockquote>
+                    <cite class="author">- Mouna</cite>
                 </div>
             </div>
             <div class="snav">
-                <button id="prev"> <svg class="aleft" xmlns="http://www.w3.org/2000/svg" height="24px"
-                        viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
+                <button id="prev" aria-label="Previous slide">
+                    <svg class="aleft" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
+                        width="24px" fill="#e8eaed">
                         <path d="M400-80 0-480l400-400 71 71-329 329 329 329-71 71Z" />
-                    </svg></button>
-                <button id="next"> <svg class="aright" xmlns="http://www.w3.org/2000/svg" height="24px"
-                        viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
+                    </svg>
+                </button>
+                <button id="next" aria-label="Next slide">
+                    <svg class="aright" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
+                        width="24px" fill="#e8eaed">
                         <path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z" />
-                    </svg> </button>
+                    </svg>
+                </button>
             </div>
         </div>
-    </div>
-
+    </section>
+    <!-- Footer HTML -->
+    <footer>
+        <div class="footer-top">
+            <div class="footer-columns">
+                <div class="footer-column">
+                    <i class="fa-solid fa-phone fa-beat-fade" style="--fa-beat-fade-opacity: 0.1; --fa-beat-fade-scale: 1.25;"></i>
+                    <p><strong>Assistance en ligne</strong><br>24h/24 et 7j/7<br>On vous écoute</p>
+                </div>
+                <div class="footer-column">
+                    <i class="fa-solid fa-rotate-left fa-spin"></i>
+                    <p><strong>Retour sous 14 jours</strong><br>Achetez en toute confiance</p>
+                </div>
+                <div class="footer-column">
+                    <i class="fa-regular fa-credit-card fa-flip"  style="--fa-animation-duration: 3s;"></i>
+                    <p><strong>Paiements Sécurisés</strong><br>Payer en toute sérénité</p>
+                </div>
+                <div class="footer-column">
+                    <i class="fa-solid fa-truck-fast fa-bounce"></i>             
+                    <p><strong>Expédition rapide</strong><br>Livraison à 35 dhs partout au Maroc Casablanca 20 Dhs</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <img src="assets/images/icon.png" alt="Lkadoo Logo">
+            <div class="footer-links">
+                <a href="#">Livraison</a>
+                <a href="#">Moyens de Paiement</a>
+                <a href="#">Emballage Cadeau</a>
+                <a href="#">Conditions de Retour</a>
+            </div>
+            <div class="footer-social">
+                <p>Suivez Nous Sur</p>
+                <div>
+                    <a href="https://web.facebook.com/lkadoo.shopping?_rdc=1&_rdr"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/parfumerie_lkadoo/"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@lkadooboutique?lang=fr"><i class="fa-brands fa-tiktok"></i></a>
+                </div>
+            </div>
+            <p>Copyright © tous les droits sont réservés à Lkadoo.ma</p>
+        </div>
+        <button class="back-to-top">
+            <i class="fa fa-arrow-up"></i>
+        </button>
+    </footer>
 </body>
 
 </html>
