@@ -38,121 +38,121 @@ let currentPage = 1;
 const products = [
     // Add your products here (12 products as an example)
     {
-        image: '../../assets/images/product1.png',
+        image: '/lkadoowebs/assets/images/product1.png',
         name: 'Product 1',
         price: '1000 DHS',
         discountedPrice: '900 DHS'
     },
     {
-        image: '../../assets/images/product1.png',
+        image: '/lkadoowebs/assets/images/product1.png',
         name: 'Product 2',
         price: '2000 DHS',
         discountedPrice: '1800 DHS'
     },
     {
-        image: '../../assets/images/product1.png',
+        image: '/lkadoowebs/assets/images/product1.png',
         name: 'Product 1',
         price: '1000 DHS',
         discountedPrice: '900 DHS'
     },
     {
-        image: '../../assets/images/product1.png',
+        image: '/lkadoowebs/assets/images/product1.png',
         name: 'Product 2',
         price: '2000 DHS',
         discountedPrice: '1800 DHS'
     },
     {
-        image: '../../assets/images/product1.png',
+        image: '/lkadoowebs/assets/images/product1.png',
         name: 'Product 1',
         price: '1000 DHS',
         discountedPrice: '900 DHS'
     },
     {
-        image: '../../assets/images/product1.png',
+        image: '/lkadoowebs/assets/images/product1.png',
         name: 'Product 2',
         price: '2000 DHS',
         discountedPrice: '1800 DHS'
     },
     {
-        image: '../../assets/images/product1.png',
+        image: '/lkadoowebs/assets/images/product1.png',
         name: 'Product 1',
         price: '1000 DHS',
         discountedPrice: '900 DHS'
     },
     {
-        image: '../../assets/images/product1.png',
+        image: '/lkadoowebs/assets/images/product1.png',
         name: 'Product 2',
         price: '2000 DHS',
         discountedPrice: '1800 DHS'
     },
     {
-        image: '../../assets/images/product1.png',
+        image: '/lkadoowebs/assets/images/product1.png',
         name: 'Product 1',
         price: '1000 DHS',
         discountedPrice: '900 DHS'
     },
     {
-        image: '../../assets/images/product1.png',
+        image: '/lkadoowebs/assets/images/product1.png',
         name: 'Product 2',
         price: '2000 DHS',
         discountedPrice: '1800 DHS'
     },
     {
-        image: '../../assets/images/product1.png',
+        image: '/lkadoowebs/assets/images/product1.png',
         name: 'Product 1',
         price: '1000 DHS',
         discountedPrice: '900 DHS'
     },
     {
-        image: '../../assets/images/product1.png',
+        image: '/lkadoowebs/assets/images/product1.png',
         name: 'Product 2',
         price: '2000 DHS',
         discountedPrice: '1800 DHS'
     },
     {
-        image: '../../assets/images/product1.png',
+        image: '/lkadoowebs/assets/images/product1.png',
         name: 'Product 1',
         price: '1000 DHS',
         discountedPrice: '900 DHS'
     },
     {
-        image: '../../assets/images/product1.png',
+        image: '/lkadoowebs/assets/images/product1.png',
         name: 'Product 2',
         price: '2000 DHS',
         discountedPrice: '1800 DHS'
     },
     {
-        image: '../../assets/images/product1.png',
+        image: '/lkadoowebs/assets/images/product1.png',
         name: 'Product 1',
         price: '1000 DHS',
         discountedPrice: '900 DHS'
     },
     {
-        image: '../../assets/images/product1.png',
+        image: '/lkadoowebs/assets/images/product1.png',
         name: 'Product 2',
         price: '2000 DHS',
         discountedPrice: '1800 DHS'
     },
     {
-        image: '../../assets/images/product1.png',
+        image: '/lkadoowebs/assets/images/product1.png',
         name: 'Product 1',
         price: '1000 DHS',
         discountedPrice: '900 DHS'
     },
     {
-        image: '../../assets/images/product1.png',
+        image: '/lkadoowebs/assets/images/product1.png',
         name: 'Product 2',
         price: '2000 DHS',
         discountedPrice: '1800 DHS'
     },
     {
-        image: '../../assets/images/product1.png',
+        image: '/lkadoowebs/assets/images/product1.png',
         name: 'Product 1',
         price: '1000 DHS',
         discountedPrice: '900 DHS'
     },
     {
-        image: '../../assets/images/product1.png',
+        image: '/lkadoowebs/assets/images/product1.png',
         name: 'Product 2',
         price: '2000 DHS',
         discountedPrice: '1800 DHS'
