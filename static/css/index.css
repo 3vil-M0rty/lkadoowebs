@@ -229,6 +229,7 @@ footer img {
     border-radius: 50%;
     left: 57%;
     top: 40%;
+    z-index: 1002;
     height: 120px;
     width: 120px;
     animation: rotate 10s linear infinite;
@@ -787,6 +788,51 @@ footer img {
     scale: 0.5;
 }
 
+.shopping-cart {
+    position: fixed;
+    top: 47px;
+    right: 100px;
+    cursor: pointer;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.shopping-cart i {
+    color: white;
+}
+
+
+.cart-count {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 12px;
+}
+
+.cart-count.animate {
+    transform: scale(0);
+    opacity: 0;
+    animation: bounce 1s linear forwards;
+}
+
+@keyframes bounce {
+    50% {
+        transform: scale(2);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+
 .treview {
     font-size: 18px;
     position: absolute;
@@ -837,7 +883,53 @@ footer img {
 
 
 
+.centerNav {
+    position: fixed;
+    background-color: white;
+    top: 50%;
+    transform: translateY(-50%);
+    right: -50%;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1002;
+    padding-inline: 20px;
+    padding-block: 20px;
+    border-top-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+    animation: slideright 1s linear forwards;
+}
+.centerNav a {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    text-decoration: none;
+    width: 100%;
+    justify-content: space-between;
+    color: black;
+}
 
+.centerNav a:hover {
+    color: #8f6b00;
+}
+
+.centerNav a:hover img{
+    scale: 1.1;
+}
+.centerNav a img {
+    height: 30px;
+    transition: all 0.3s linear;
+
+}
+
+@keyframes slideright {
+    to {
+        right: 2%;
+    }
+}
 
 
 @media (max-width: 750px) {

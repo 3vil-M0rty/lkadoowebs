@@ -2,13 +2,16 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parfumerie Maroc - Parfums, Soins, Maquillage & Cadeaux | LKADOO</title>
-    <link rel="stylesheet" href="static/css/products.css">
-    <link rel="icon" type="image/x-icon" href="assets/images/icon-black.png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <script type="module" src="static/js/products.js"></script>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Parfumerie Maroc - Parfums, Soins, Maquillage & Cadeaux | LKADOO</title>
+        <link rel="stylesheet" href="static/css/cart.css">
+        <link rel="icon" type="image/x-icon" href="assets/images/icon-black.png">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+        <script type="module" src="static/js/cart.js"></script>
+    </head>
 </head>
 
 <body>
@@ -26,22 +29,24 @@
             <span></span>
         </button>
         <div id="myLinks" role="navigation">
-            <a href="#acceuil">Acceuil</a>
-            <a href="#news" class="activetab">Parfums</a>
+            <a href="index.html">Acceuil</a>
+            <a href="parfums.html">Parfums</a>
             <a href="#contact">Coffrets</a>
             <a href="#about">Maquillages</a>
             <a href="#about">Soins capillaires</a>
         </div>
     </nav>
+    
 
-    <div class="products"></div>
-    <div class="pagination">
-        <button id="prev-page" class="page-btn">Previous</button>
-        <div id="page-numbers"></div>
-        <button id="next-page" class="page-btn">Next</button>
+    <div class="cart">
+        <h1>presque là!</h1>
+        <div id="cartItems" class="storage-item"></div>
+        <div class="cartInfo">
+            <div id="total" class="storage-item">Total: <span id="totalValue"></span> DHS</div>
+            <div id="originaltotal" class="storage-item">Total initial: <span id="originaltotalValue"></span> DHS</div>
+            <div id="promotion" class="storage-item">Vous avez économisez: <span id="promoValue"></span> DHS</div>
+        </div>
     </div>
-
-    <div id="product-detail" class="product-detail"></div>
 
     <footer>
         <div class="footer-top">
@@ -88,6 +93,7 @@
             <i class="fa fa-arrow-up"></i>
         </button>
     </footer>
+
 </body>
 
 </html>

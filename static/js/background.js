@@ -29,11 +29,11 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 
     const imageSources = [
-        '/lkadoowebs/assets/images/burberry.png',
-        '/lkadoowebs/assets/images/dolce.png',
-        '/lkadoowebs/assets/images/givenchy.png',
-        '/lkadoowebs/assets/images/lancome.png',
-        '/lkadoowebs/assets/images/gucci.png'
+        '../../assets/images/burberry.png',
+        '../../assets/images/dolce.png',
+        '../../assets/images/givenchy.png',
+        '../../assets/images/lancome.png',
+        '../../assets/images/gucci.png'
     ];
 
     const collabImage = document.querySelector('.collab');
@@ -50,6 +50,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 });
+
+const cartCountStored = sessionStorage.getItem('cartCount');
+let totalAddedProducts = cartCountStored != null ? parseInt(cartCountStored) : 0;
+let cartCount = document.getElementById("cartCount");
+cartCount.innerText = totalAddedProducts;
+
+document.querySelector('.shopping-cart').addEventListener('click', function () {
+    window.location.href = 'cart.html';
+});
+
 
 
 let currentIndex = 0;

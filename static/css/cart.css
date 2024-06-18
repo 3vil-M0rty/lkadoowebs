@@ -1,0 +1,369 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+html,
+body {
+    font-family: "Lato", sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background-color: black;
+
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+footer {
+    width: 100%;
+    /* Ensure the footer takes the full width of the page */
+    background-color: black;
+    /* Your desired footer background color */
+    color: white;
+    /* Your desired footer text color */
+    text-align: center;
+    padding: 20px 0;
+    /* Adjust as needed */
+}
+
+
+.footer-top {
+    background-color: #ffbf009d;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-columns {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.footer-column {
+    flex: 1;
+    padding: 10px;
+}
+
+.footer-column p {
+    margin: 0;
+}
+
+.footer-bottom {
+    padding: 20px;
+    text-align: center;
+}
+
+.footer-bottom img {
+    margin-bottom: 20px;
+}
+
+.footer-links {
+    display: flex;
+    padding-block: 10px;
+    border-bottom: 1px solid white;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.footer-links a {
+    margin: 0 10px;
+    color: white;
+}
+
+.footer-social {
+    margin: 20px 0;
+}
+
+.footer-social a {
+    color: white;
+    margin: 0 5px;
+}
+
+footer img {
+    height: 80px;
+}
+
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #8f6b00;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid black;
+}
+
+.back-to-top i {
+    color: black;
+}
+
+
+#myLinks {
+    background-color: rgb(0, 0, 0, 0.8);
+    height: 7vh;
+    width: 100vw;
+    position: fixed;
+    top: 90px;
+    scale: 0;
+    opacity: 0;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: .3s ease;
+    padding: 0;
+    z-index: 10;
+}
+
+#myLinks a {
+    text-decoration: none;
+    color: white;
+}
+
+#myLinks.active {
+    scale: 1;
+    opacity: 1;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding-block: 0px;
+    background-color: black;
+    height: 90px;
+    z-index: 10;
+}
+
+.navbar a {
+    padding: 0;
+    margin: 0;
+    margin-left: 25px;
+    width: 100px;
+}
+
+.navbar img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.activetab {
+    color: rgb(168, 146, 18) !important;
+}
+
+.shopping-cart {
+    position: fixed;
+    top: 47px;
+    right: 100px;
+    cursor: pointer;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.shopping-cart i {
+    color: white;
+}
+
+
+.cart-count {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 12px;
+}
+
+.cart-count.animate {
+    transform: scale(0);
+    opacity: 0;
+    animation: bounce 1s linear forwards;
+}
+
+@keyframes bounce {
+    50% {
+        transform: scale(2);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+
+.icon {
+    cursor: pointer;
+    margin-right: 25px;
+    border: 1px solid white;
+    background-color: transparent;
+    border-radius: 50%;
+    height: 35px;
+    width: 35px;
+    position: relative;
+    transition: .3s ease;
+}
+
+
+.icon.active span:nth-child(1) {
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.icon.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.icon.active span:nth-child(3) {
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.icon span {
+    height: 3px;
+    width: 25px;
+    background-color: white;
+    border-radius: 25px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: .3s ease;
+}
+
+.icon span:nth-child(1) {
+    top: 30%;
+}
+
+.icon span:nth-child(2) {
+    top: 50%;
+}
+
+.icon span:nth-child(3) {
+    top: 70%;
+}
+
+.cart {
+    width: 100%;
+    margin-top: 100px;
+    background: rgb(255, 255, 255);
+    /* background: radial-gradient(circle, rgba(0, 0, 0, 1) 0%, rgba(143, 107, 0, 1) 100%); */
+    margin-left: 50%;
+    transform: translateX(-50%);
+    color: black;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    justify-content: space-around;
+}
+
+#cartItems {
+    width: 70%;
+}
+
+
+.cartTable {
+    width: 100%;
+    border: none;
+    display: block;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scrollbar-gutter: stable both-edges;
+    height: 50vh;
+    max-height: 80vh;
+    color: black;
+}
+
+.cartTable::-webkit-scrollbar {
+    width: 5px;
+}
+
+.cartTable::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.cartTable::-webkit-scrollbar-thumb {
+    background: #000000;
+}
+
+.cartTable::-webkit-scrollbar-thumb:hover {
+    background: #8f6b00;
+}
+
+
+.cartTable tr {
+    display: table;
+    table-layout: fixed;
+    border-bottom: 1px solid black; /* Define cell borders */
+    padding: 10px;
+    width: 100%; /* Ensure cells take up full width */
+    box-sizing: border-box; /* Include padding and border in width */
+}
+
+
+.cartTable td, 
+.cartTable th  {
+    padding: 5px;
+    text-align: center;
+    border: none;
+    background-color: transparent;
+}
+
+.cart h1 {
+    position: absolute;
+    top: 0;
+}
+
+.cartInfo {
+    font-size: 1.2rem;
+    font-weight: bolder;
+    width: 22%;
+}
+
+
+.quantity {
+    text-align: center;
+}
+
+.itemImage {
+    height: 50px;
+    object-fit: cover;
+}
+
+
+
+.quantity {
+    border: 1px solid black;
+}
+@media (max-width: 750px) {
+    .cart {
+        flex-direction: column;
+        height: fit-content;
+        gap: 25px;
+    }
+
+    .cartTable {
+        margin-top: 20%;
+        height: fit-content;
+    }
+    #cartItems {
+        width: 95%;
+    }
+}
