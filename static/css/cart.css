@@ -94,6 +94,7 @@ footer img {
     width: 40px;
     height: 40px;
     text-align: center;
+    display: none;
     cursor: pointer;
     border: 1px solid black;
 }
@@ -274,6 +275,97 @@ footer img {
     justify-content: space-around;
 }
 
+.cartTitle {
+    position: absolute;
+    top: 10px;
+    font-size: 1.5rem;
+    display: flex;
+    gap: 10px;
+    width: fit-content;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+.almost,
+.almost2 {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.almost:first-of-type {
+    /* For increasing performance 
+                         ID/Class should've been used. 
+                         For a small demo 
+                         it's okaish for now */
+    animation: showup 0.5s linear forwards;
+}
+
+.almost2:last-of-type {
+    width: 0px;
+    animation: reveal 3s linear forwards;
+}
+
+.almost2:last-of-type span {
+    margin-left: -550px;
+    animation: slidein 3s linear forwards;
+}
+
+@keyframes showup {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes slidein {
+    0% {
+        margin-left: -800px;
+    }
+
+    20% {
+        margin-left: -800px;
+    }
+
+    35% {
+        margin-left: 0px;
+    }
+
+    100% {
+        margin-left: 0px;
+    }
+}
+
+@keyframes reveal {
+    0% {
+        opacity: 0;
+        width: 0px;
+    }
+
+    20% {
+        opacity: 1;
+        width: 0px;
+    }
+
+    30% {
+        width: 480px;
+    }
+
+
+    100% {
+        opacity: 1;
+        width: 480px;
+    }
+}
+
+
 #cartItems {
     width: 70%;
 }
@@ -311,15 +403,23 @@ footer img {
 .cartTable tr {
     display: table;
     table-layout: fixed;
-    border-bottom: 1px solid black; /* Define cell borders */
+    border-bottom: 1px solid black;
+    /* Define cell borders */
     padding: 10px;
-    width: 100%; /* Ensure cells take up full width */
-    box-sizing: border-box; /* Include padding and border in width */
+    width: 100%;
+    /* Ensure cells take up full width */
+    box-sizing: border-box;
+    /* Include padding and border in width */
+    transition: all 0.5s linear;
+}
+
+.cartTable tr:hover {
+    background-color: #f7c01b;
 }
 
 
-.cartTable td, 
-.cartTable th  {
+.cartTable td,
+.cartTable th {
     padding: 5px;
     text-align: center;
     border: none;
@@ -335,6 +435,8 @@ footer img {
     font-size: 1.2rem;
     font-weight: bolder;
     width: 22%;
+    vertical-align: center;
+    height: 50%;
 }
 
 
@@ -352,6 +454,123 @@ footer img {
 .quantity {
     border: 1px solid black;
 }
+
+table i {
+    cursor: pointer;
+    color: red;
+}
+
+table i:hover {
+    scale: 1.2;
+}
+
+.userInfoForms {
+    margin-top: 25px;
+    background-color: white;
+    color: black;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    gap: 25px;
+    padding-block: 25px;
+    scroll-margin-top: 90px;
+}
+
+.checkout-form {
+    width: 40%;
+}
+
+.checkout-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.required {
+    color: red;
+}
+
+.checkout-form h2 {
+    position: relative;
+}
+
+.remark {
+    position: absolute;
+    font-size: 10px;
+    right: 0;
+}
+
+.cartInfo {
+    position: relative;
+    text-align: center;
+    border: 4px solid #8f6b00;
+    border-style: double;
+    border-radius: 25px;
+    box-shadow: 0px 7px 5px rgba(0, 0, 0, 0.7);
+    pointer-events: none;
+    transition: all 0.3s linear;
+    overflow: hidden;
+}
+
+.cartInfo .form-button {
+    position: absolute;
+    bottom: 10px;
+    transform: translateX(-50%);
+    pointer-events: auto;
+}
+
+.cartInfoText {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    width: 100%;
+    height: 83%;
+    justify-content: space-between;
+}
+
+#total {
+    flex: 1;
+}
+
+#originaltotal {
+    flex: 1;
+}
+
+#promotion {
+    flex: 1;
+}
+
+.form-button {
+    background-color: transparent;
+    border: 1px solid black;
+    color: black;
+    text-align: center;
+    border-radius: 25px;
+    cursor: pointer;
+    text-decoration: none;
+    padding: 10px;
+    transition: all 0.2s linear;
+}
+
+
+.form-button:hover {
+    background-color: black;
+    color: #8f6b00;
+    border: 1px solid #8f6b00;
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.7);
+    bottom: 12px;
+}
+
+
+.cartInfo:hover {
+    background-color: #7dfc63;
+}
+
+.effacer:hover {
+    background-color: rgb(196, 0, 0);
+    color: white;
+}
+
 @media (max-width: 750px) {
     .cart {
         flex-direction: column;
@@ -363,7 +582,24 @@ footer img {
         margin-top: 20%;
         height: fit-content;
     }
+
     #cartItems {
         width: 95%;
+    }
+
+    .cartInfo {
+        width: 100%;
+        text-align: center;
+        background-color: pink;
+    }
+
+    #myLinks {
+        font-size: 1.20rem;
+        flex-direction: column;
+        height: 75vh;
+        gap: 2px;
+        justify-content: none;
+        padding: 0;
+        background-color: rgba(0, 0, 0, 0.9);
     }
 }

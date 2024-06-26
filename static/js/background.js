@@ -29,11 +29,11 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 
     const imageSources = [
-        '../../assets/images/burberry.png',
-        '../../assets/images/dolce.png',
-        '../../assets/images/givenchy.png',
-        '../../assets/images/lancome.png',
-        '../../assets/images/gucci.png'
+        'lkadoowebs/assets/images/burberry.png',
+        'lkadoowebs/assets/images/dolce.png',
+        'lkadoowebs/assets/images/givenchy.png',
+        'lkadoowebs/assets/images/lancome.png',
+        'lkadoowebs/assets/images/gucci.png'
     ];
 
     const collabImage = document.querySelector('.collab');
@@ -105,4 +105,21 @@ document.addEventListener("DOMContentLoaded", function() {
             behavior: "smooth"
         });
     });
+
+
+    window.addEventListener("scroll", () => {
+        const centerNav = document.querySelector('.centerNav');
+        const navBar = document.querySelector('.navbar');
+
+        if (window.scrollY > 300) { // Adjust the scroll position as needed
+            centerNav.classList.add('centerNavFin');
+            navBar.style.backgroundColor = 'black';
+            centerNav.classList.remove('centerNavInit');
+        } else {
+            centerNav.classList.add('centerNavInit');
+            navBar.style.backgroundColor = 'transparent';
+            centerNav.classList.remove('centerNavFin');
+        }
+    });
 });
+

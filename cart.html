@@ -36,18 +36,80 @@
             <a href="#about">Soins capillaires</a>
         </div>
     </nav>
-    
+
 
     <div class="cart">
-        <h1>presque là!</h1>
+        <div class="cartTitle">
+            <div class="almost">
+                Nous y sommes presque !
+            </div>
+            <div class="almost2">
+                <span>Veuillez remplir les informations nécessaires.</span>
+            </div>
+        </div>
         <div id="cartItems" class="storage-item"></div>
         <div class="cartInfo">
-            <div id="total" class="storage-item">Total: <span id="totalValue"></span> DHS</div>
-            <div id="originaltotal" class="storage-item">Total initial: <span id="originaltotalValue"></span> DHS</div>
-            <div id="promotion" class="storage-item">Vous avez économisez: <span id="promoValue"></span> DHS</div>
+            <div class="cartInfoText">
+                <div id="total" class="storage-item">Total:<br> <span id="totalValue">0</span> DHS</div>
+                <div id="originaltotal" class="storage-item">Total initial:<br> <span id="originaltotalValue">0</span>
+                    DHS</div>
+                <div id="promotion" class="storage-item">Vous avez économisez:<br> <span id="promoValue">0</span> DHS
+                </div>
+            </div>
+            <button class="form-button" type="button" onclick="makePayment()">Make Payment</button>
         </div>
     </div>
 
+    <div class="userInfoForms">
+        <div class="checkout-form" id="contactDetailsForm">
+            <h2>Contact Details<span class="remark"><span class="required">*</span> indicates required
+                    information</span></h2>
+            <form>
+                <label for="firstName">Prénom <span class="required">*</span>:</label>
+                <input type="text" id="firstName" name="firstName" required>
+
+                <label for="lastName">Nom <span class="required">*</span>: </label>
+                <input type="text" id="lastName" name="lastName" required>
+
+                <label for="phoneNumber">Numéro de téléphone <span class="required">*</span>:</label>
+                <input type="text" id="phoneNumber" name="phoneNumber" required>
+
+                <label for="email">Adresse e-mail<span class="required">*</span>:</label>
+                <input type="email" id="email" name="email" required>
+                <button class="form-button effacer" type="button"
+                    onclick="clearForm('contactDetailsForm')">Éffacer</button>
+                <button class="form-button" type="button"
+                    onclick="saveChanges('contactDetailsForm')">Sauvegarder</button>
+            </form>
+        </div>
+        <div class="checkout-form" id="billingAddressForm">
+            <h2>Adresse De Facturation <span class="remark"><span class="required">*</span> indique une information
+                    requise</span></h2>
+            <form>
+                <label for="addressLine1">Adresse Ligne 1 <span class="required">*</span>:</label>
+                <input type="text" id="addressLine1" name="addressLine1" required>
+
+                <label for="addressLine2">Adresse Ligne 2:</label>
+                <input type="text" id="addressLine2" name="addressLine2">
+
+                <label for="city">Ville <span class="required">*</span>:</label>
+                <input type="text" id="city" name="city" required>
+
+                <label for="state">État/Province/Région:</label>
+                <input type="text" id="state" name="state">
+
+                <label for="postcode">Code Postal <span class="required">*</span>:</label>
+                <input type="text" id="postcode" name="postcode" required>
+
+                <label for="country">Pays <span class="required">*</span>:</label>
+                <input type="text" id="country" name="country" required>
+                <button class="form-button effacer" type="button"
+                    onclick="clearForm('billingAddressForm')">Éffacer</button>
+                <button class="form-button" type="button" onclick="saveChanges('billingAddressForm')">Sauvegarder
+                </button>
+            </form>
+        </div>
+    </div>
     <footer>
         <div class="footer-top">
             <div class="footer-columns">
@@ -93,7 +155,46 @@
             <i class="fa fa-arrow-up"></i>
         </button>
     </footer>
+    <script>
+        function clearForm(formId) {
+            document.getElementById(formId).querySelectorAll('input').forEach(input => {
+                input.value = '';
+            });
+        }
 
+        function saveChanges(formId) {
+            var formData = {};
+            var form = document.getElementById(formId).querySelector('form');
+            form.querySelectorAll('input').forEach(input => {
+                formData[input.id] = input.value;
+            });
+            console.log("Form data:", formData);
+        }
+        function makePayment() {
+            var forms = document.querySelectorAll('.checkout-form form');
+            var allFormsFilled = true;
+            forms.forEach(form => {
+                form.querySelectorAll('input[required]').forEach(input => {
+                    if (!input.value) {
+                        allFormsFilled = false;
+                    }
+                });
+            });
+
+            if (allFormsFilled) {
+                if (JSON.parse(sessionStorage.getItem("cartItems")).length == 0 || sessionStorage.getItem("cartCount") == 0) {
+                    alert("rien dans le panier!");
+
+                } else {
+                    alert("Payment successful!");
+                }
+
+            } else {
+                alert("Please fill in all required fields before making the payment.");
+                document.querySelector(".userInfoForms").scrollIntoView({ behavior: "smooth", block: "start" });
+            }
+        }
+    </script>
 </body>
 
 </html>
