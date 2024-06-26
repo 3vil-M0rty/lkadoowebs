@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Fetch products function
     function fetchProducts() {
-        return fetch('lkadoowebs/get_products.php')
+        return fetch('get_products.php')
             .then(response => response.json())
             .then(data => {
                 products = data; // Store fetched products globally
@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Fetch images function
     function fetchImages() {
-        return fetch('lkadoowebs/get_images.php')
+        return fetch('get_images.php')
             .then(response => response.json())
             .then(data => {
                 images = data; // Store fetched images globally
