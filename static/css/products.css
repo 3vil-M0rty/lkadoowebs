@@ -104,12 +104,10 @@ footer img {
 
 #myLinks {
     background-color: rgb(0, 0, 0, 0.8);
-    height: 7vh;
+    height: 10vh;
     width: 100vw;
     position: fixed;
     top: 90px;
-    scale: 0;
-    opacity: 0;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -124,12 +122,13 @@ footer img {
 #myLinks a {
     text-decoration: none;
     color: white;
+    font-size: 0.85rem;
+    display: flex;
+    flex-direction: column;
+    text-align: center !important;
+
 }
 
-#myLinks.active {
-    scale: 1;
-    opacity: 1;
-}
 
 .navbar {
     position: fixed;
@@ -150,6 +149,7 @@ footer img {
     margin: 0;
     margin-left: 25px;
     width: 100px;
+    text-align: center !important;
 }
 
 .navbar img {
@@ -158,7 +158,7 @@ footer img {
 }
 
 .activetab {
-    color: rgb(168, 146, 18) !important;
+    color: gold !important;
 }
 
 .shopping-cart {
@@ -221,6 +221,7 @@ footer img {
 
 .icon {
     cursor: pointer;
+    display: none;
     margin-right: 25px;
     border: 1px solid white;
     background-color: transparent;
@@ -274,7 +275,7 @@ footer img {
     width: 95%;
     margin-left: 50%;
     transform: translateX(-50%);
-    margin-top: 90px;
+    margin-top: 190px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 10px;
@@ -335,14 +336,107 @@ footer img {
 }
 
 .product:hover {
-    background-color: rgb(255, 237, 182);
+    background-image: linear-gradient(225deg, #8f6b00, white, #8f6b00);
 }
+
+.filters-options {
+    position: fixed;
+    top: 90px;
+    left: -100%;
+    transition: left 0.5s ease-in-out; 
+    width: 40vw;
+    height: calc(100vh - 90px);
+    z-index: 2000;
+    backdrop-filter: blur(25px);
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    text-align: right;
+    background-color: rgba(255,255,255,0.6);
+    background-image: linear-gradient(225deg, #8f6b00, white, #8f6b00);
+}
+
+
+.filters-options.show {
+    display: flex; 
+    left: 0;
+}
+
+.filtercontainer {
+    font-weight: bold;
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+    font-size: 1rem;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    text-transform: uppercase;
+}
+
+.filtercontainer input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background-color: #1d1d1d;
+}
+
+.filtercontainer:hover input~.checkmark {
+    background-color: #8f6b00;
+}
+
+/* When the checkbox is checked, add a blue background */
+.filtercontainer input:checked~.checkmark {
+    background-color: #8f6b00;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.filtercontainer input:checked~.checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.filtercontainer .checkmark:after {
+    top: 50%;
+    transform: translateY(-50%);
+    left: 5px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: black;
+}
+
+
+
 
 .productIMG {
     height: 300px;
     position: relative;
     display: flex;
     overflow: hidden;
+    background-color: white;
     border-top-right-radius: 25px;
     border-bottom-left-radius: 25px;
     transition: all 0.1s linear;
@@ -360,7 +454,7 @@ footer img {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     backdrop-filter: blur(25px);
     font-size: 1.2rem;
     font-weight: bolder;
@@ -431,7 +525,7 @@ footer img {
     color: #8f6b00;
 }
 
-.add-to-cart-btn {
+.add-to-cart-btn, .filterButton {
     padding-inline: 10px;
     padding-block: 5px;
     cursor: pointer;
@@ -442,7 +536,7 @@ footer img {
     transition: all 0.3s linear;
 }
 
-.add-to-cart-btn:hover {
+.add-to-cart-btn:hover, .filterButton:hover {
     background-color: black;
     color: #8f6b00;
     border: 1px solid #8f6b00;
@@ -713,12 +807,189 @@ footer img {
     transform: translateY(-3px);
 }
 
+/* Additional CSS for rotating carets */
+.rotate-up {
+    transform: rotate(180deg);
+}
+
+.rotate-right {
+    transform: rotate(90deg);
+}
+
+/* DROPDOWN*/
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown button */
+.dropbtn {
+    background-color: transparent;
+    font-size: 16px;
+    padding: 10px 10px !important;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+}
+
+/* The dropdown content (hidden by default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 1);
+    z-index: 9999;
+    min-width: 160px;
+    text-align: center;
+    padding-block: 5px;
+    padding-inline: 0;
+    margin: 0;
+    border-bottom-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 5px 5px;
+    text-decoration: none;
+    text-align: center !important;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+    background-color: #8f6b00;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+    background-color: #8f6b00;
+}
+
+.dropdown:hover .mmfa {
+    transform: rotate(180deg);
+}
+
+.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu2 {
+    position: relative;
+}
+
+.dropdown-submenu a {
+    text-align: center;
+    flex-direction: row !important;
+}
+
+.dropdown-submenu2 a {
+    flex-direction: row !important;
+}
+
+.dropdown-subcontent a, .dropdown-subcontent2 a {
+    text-align: center !important;
+}
+
+/* Submenu content (hidden by default) */
+.dropdown-subcontent, .dropdown-subcontent2 {
+    display: none;
+    position: absolute;
+    top: 0;
+    background-color: black;
+    min-width: 160px;
+    padding-block: 5px;
+    padding-inline: 0;
+    border-bottom-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown-subcontent {
+    left: 100%;
+}
+.dropdown-subcontent2{
+    left: 100%;
+}
+/* Show the submenu on hover */
+.dropdown-submenu:hover .dropdown-subcontent {
+    display: block;
+}
+
+
+
+.fa {
+    transition: all 0.3s ease;
+}
+.dropdown-submenu:hover .mfa {
+    transform: rotate(180deg);
+}
+
+.dropdown-submenu2:hover .sfa {
+    transform: rotate(180deg);
+}
+
+
+.dropdown-submenu2:hover .dropdown-subcontent2 {
+    display: block;
+}
+
+
+/* Arrow icon for submenus */
+.dropdown-submenu a {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    align-items: center;
+}
+
+/* Arrow icon styling */
+.fa-caret-right {
+    margin-left: 10px;
+}
+
+/* Show the dropdown content on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+    background-color: #8f6b00;
+}
+
+.dropdown-content.show {
+    display: block;
+}
+
+.dropdown-subcontent.show, .dropdown-subcontent2.show, .dropdown-subcontent3.show {
+    display: block;
+}
+
+
 @media (max-width: 750px) {
     * {
         -webkit-tap-highlight-color: transparent;
         -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     }
 
+    .filters-options {
+        width: 100%;
+        background-color: rgba(255,255,255,0.6);
+    }
+
+    .icon {
+        display: block;
+    }
+    
     .products {
         width: 95%;
         margin-left: 50%;
@@ -741,11 +1012,19 @@ footer img {
     #myLinks {
         font-size: 1.20rem;
         flex-direction: column;
-        height: 75vh;
+        height: 60vh;
         gap: 2px;
+        align-items: start;
+        scale: 0;
+        opacity: 0;
         justify-content: none;
         padding: 0;
         background-color: rgba(0, 0, 0, 0.9);
+    }
+
+    #myLinks.active {
+        opacity: 1;
+        scale: 1;
     }
 
     footer {

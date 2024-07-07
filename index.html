@@ -9,6 +9,7 @@
     <link rel="icon" type="image/x-icon" href="assets/images/icon-black.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <script type="module" src="static/js/background.js"></script>
+    <script type="module" src="static/js/submenus.js"></script>
 </head>
 
 <body>
@@ -26,12 +27,119 @@
             <span></span>
         </button>
         <div id="myLinks" role="navigation">
-            <a href="#acceuil" class="activetab">Acceuil</a>
-            <a href="parfums.html">Parfums</a>
-            <a href="#contact">Coffrets</a>
-            <a href="#about">Maquillages</a>
-            <a href="#about">Soins capillaires</a>
+            <a href="index.html" class="activetab">Accueil</a>
+            <div class="dropdown">
+                <a href="parfums.html" class="dropbtn" data-parent="parfums.html">Parfums <i class="mmfa fa fa-caret-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="#" class="category-link" data-category="parfums-femmes" data-parent="parfums.html">Parfums Femme</a>
+                    <a href="#" class="category-link" data-category="parfums-hommes" data-parent="parfums.html">Parfums Homme</a>
+                    <a href="#" class="category-link" data-category="parfums-mixtes" data-parent="parfums.html">Parfums Mixtes</a>
+                    <a href="#" class="category-link" data-category="parfums-enfants" data-parent="parfums.html">Parfums Enfant</a>
+                    <a href="#" class="category-link" data-category="parfums-de-niches" data-parent="parfums.html">Parfums de niche</a>
+                    <a href="#" class="category-link" data-category="parfums-cheveux" data-parent="parfums.html">Parfums pour cheveux</a>
+                    <a href="#" class="category-link" data-category="parfums-corps" data-parent="parfums.html">Parfums pour corps</a>
+                </div>
+            </div>
+        
+            <div class="dropdown">
+                <a href="corps-et-bains.html" class="dropbtn" data-parent="corps-et-bains.html">Corps et Bain <i class="mmfa fa fa-caret-down"></i></a>
+                <div class="dropdown-content">
+                    <div class="dropdown-submenu">
+                        <a href="#" class="category-link" data-category="soins-visage" data-parent="corps-et-bains.html">Soins Visage <i class="mfa fa fa-caret-right"></i></a>
+                        <div class="dropdown-subcontent">
+                            <a href="#" class="category-link" data-category="ecrans-solaires" data-parent="corps-et-bains.html">Ecrans Solaires</a>
+                            <a href="#" class="category-link" data-category="lotions-demaquillants" data-parent="corps-et-bains.html">Lotions et Démaquillants</a>
+                            <a href="#" class="category-link" data-category="gommage" data-parent="corps-et-bains.html">Gommage</a>
+                            <a href="#" class="category-link" data-category="nettoyants" data-parent="corps-et-bains.html">Nettoyants</a>
+                            <a href="#" class="category-link" data-category="serums-visage" data-parent="corps-et-bains.html">Sérums Visage</a>
+                            <a href="#" class="category-link" data-category="protection-bronzage" data-parent="corps-et-bains.html">Protection & Bronzage</a>
+                        </div>
+                    </div>
+                    <div class="dropdown-submenu">
+                        <a href="#" class="category-link" data-category="soins-corps" data-parent="corps-et-bains.html">Soins Corps <i class="mfa fa fa-caret-right"></i></a>
+                        <div class="dropdown-subcontent">
+                            <div class="dropdown-submenu2">
+                                <a href="#" class="category-link" data-category="hydratation-corps" data-parent="corps-et-bains.html">Hydratation Corps <i class="sfa fa fa-caret-right"></i></a>
+                                <div class="dropdown-subcontent2">
+                                    <a href="#" class="category-link" data-category="cremes-corps" data-parent="corps-et-bains.html">Crèmes Corps</a>
+                                    <a href="#" class="category-link" data-category="lait-corps" data-parent="corps-et-bains.html">Lait Corps</a>
+                                    <a href="#" class="category-link" data-category="cremes-pieds" data-parent="corps-et-bains.html">Crèmes Pieds</a>
+                                    <a href="#" class="category-link" data-category="cremes-mains" data-parent="corps-et-bains.html">Crèmes Mains</a>
+                                    <a href="#" class="category-link" data-category="huiles-corps" data-parent="corps-et-bains.html">Huiles Corps</a>
+                                </div>
+                            </div>
+                            <a href="#" class="category-link" data-category="parfums-corps" data-parent="corps-et-bains.html">Parfums Pour Corps</a>
+                            <a href="#" class="category-link" data-category="protection-bronzage" data-parent="corps-et-bains.html">Protection et Bronzage</a>
+                            <a href="#" class="category-link" data-category="gels-douche" data-parent="corps-et-bains.html">Gels Douche</a>
+                            <a href="#" class="category-link" data-category="savons" data-parent="corps-et-bains.html">Savons</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="dropdown">
+                <a href="maquillage.html" class="dropbtn" data-parent="maquillage.html">Maquillage <i class="mmfa fa fa-caret-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="#" class="category-link" data-category="accessoires-maquillage" data-parent="maquillage.html">Accessoires Maquillage</a>
+                    <a href="#" class="category-link" data-category="lotions-demaquillants" data-parent="maquillage.html">Lotion & Démaquillant</a>
+                    <div class="dropdown-submenu">
+                        <a href="#" class="category-link" data-category="teint" data-parent="maquillage.html">Teint <i class="mfa fa fa-caret-right"></i></a>
+                        <div class="dropdown-subcontent">
+                            <a href="#" class="category-link" data-category="base-teint" data-parent="maquillage.html">Base de teint</a>
+                            <a href="#" class="category-link" data-category="fonds-teint" data-parent="maquillage.html">Fonds de teint</a>
+                            <a href="#" class="category-link" data-category="fards-paupieres-highlighters" data-parent="maquillage.html">Fards à paupières & Highlighters</a>
+                            <a href="#" class="category-link" data-category="cremes-teint-correcteurs" data-parent="maquillage.html">Crèmes teint et Correcteurs</a>
+                            <a href="#" class="category-link" data-category="blush-fards-joues" data-parent="maquillage.html">Blush & Fards à joues</a>
+                            <a href="#" class="category-link" data-category="palette-poudres" data-parent="maquillage.html">Palette et Poudres</a>
+                        </div>
+                    </div>
+                    <div class="dropdown-submenu">
+                        <a href="#" class="category-link" data-category="levres" data-parent="maquillage.html">Lèvres <i class="mfa fa fa-caret-right"></i></a>
+                        <div class="dropdown-subcontent">
+                            <a href="#" class="category-link" data-category="rouges-levres" data-parent="maquillage.html">Rouges à Lèvres</a>
+                            <a href="#" class="category-link" data-category="baumes-levres" data-parent="maquillage.html">Baumes à Lèvres</a>
+                            <a href="#" class="category-link" data-category="crayons-levres" data-parent="maquillage.html">Crayons à Lèvres</a>
+                        </div>
+                    </div>
+                    <div class="dropdown-submenu">
+                        <a href="#" class="category-link" data-category="yeux" data-parent="maquillage.html">Yeux <i class="mfa fa fa-caret-right"></i></a>
+                        <div class="dropdown-subcontent">
+                            <a href="#" class="category-link" data-category="crayons-eyeliners" data-parent="maquillage.html">Crayons & Eyeliners</a>
+                            <a href="#" class="category-link" data-category="mascara" data-parent="maquillage.html">Mascara</a>
+                            <a href="#" class="category-link" data-category="cils-sourcils" data-parent="maquillage.html">Cils et Sourcils</a>
+                            <a href="#" class="category-link" data-category="fards-paupieres-highlighters" data-parent="maquillage.html">Fards à paupières & Highlighters</a>
+                        </div>
+                    </div>
+                    <div class="dropdown-submenu">
+                        <a href="#" class="category-link" data-category="ongles" data-parent="maquillage.html">Ongles <i class="mfa fa fa-caret-right"></i></a>
+                        <div class="dropdown-subcontent">
+                            <a href="#" class="category-link" data-category="vernis-ongles" data-parent="maquillage.html">Vernis Ongles</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="dropdown">
+                <a href="coffrets.html" class="dropbtn" data-parent="coffrets.html">Coffrets <i class="mmfa fa fa-caret-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="#" class="category-link" data-category="coffret-femme" data-parent="coffrets.html">Coffret Femme</a>
+                    <a href="#" class="category-link" data-category="coffret-homme" data-parent="coffrets.html">Coffret Homme</a>
+                </div>
+            </div>
+        
+            <div class="dropdown">
+                <a href="soins-capillaires.html" class="dropbtn" data-parent="soins-capillaires.html">Soins Capillaires <i class="mmfa fa fa-caret-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="#" class="category-link" data-category="parfums-cheveux" data-parent="soins-capillaires.html">Parfums Pour Cheveux</a>
+                    <a href="#" class="category-link" data-category="apres-shampoing" data-parent="soins-capillaires.html">Après Shampoing</a>
+                    <a href="#" class="category-link" data-category="shampoings" data-parent="soins-capillaires.html">Shampoings</a>
+                    <a href="#" class="category-link" data-category="masques" data-parent="soins-capillaires.html">Masques</a>
+                    <a href="#" class="category-link" data-category="huile-cheveux" data-parent="soins-capillaires.html">Huile</a>
+                    <a href="#" class="category-link" data-category="colorations" data-parent="soins-capillaires.html">Colorations</a>
+                </div>
+            </div>
         </div>
+        
     </nav>
 
     <header class="landing-page" role="banner">
@@ -64,7 +172,7 @@
                 maquillage
                 <img src="assets/images/makeup.png" alt="maquillage" role="get To Make up">
             </a>
-            <a href="maquillage.html" title="soins capillaires">
+            <a href="soins-capillaires.html" title="soins capillaires">
                 soins capillaires
                 <img src="assets/images/haircare.png" alt="soins capillaires" role="get To Hair Care">
             </a>

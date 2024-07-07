@@ -21,19 +21,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     move();
 
-     */const icon = document.querySelector('.icon');
-    const links = document.getElementById('myLinks');
-    icon.addEventListener('click', () => {
-        icon.classList.toggle('active');
-        links.classList.toggle('active');
-    })
+     */
 
     const imageSources = [
-        'lkadoowebs/assets/images/burberry.png',
-        'lkadoowebs/assets/images/dolce.png',
-        'lkadoowebs/assets/images/givenchy.png',
-        'lkadoowebs/assets/images/lancome.png',
-        'lkadoowebs/assets/images/gucci.png'
+        '../../assets/images/burberry.png',
+        '../../assets/images/dolce.png',
+        '../../assets/images/givenchy.png',
+        '../../assets/images/lancome.png',
+        '../../assets/images/gucci.png'
     ];
 
     const collabImage = document.querySelector('.collab');

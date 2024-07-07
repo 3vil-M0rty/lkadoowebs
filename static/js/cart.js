@@ -118,12 +118,7 @@ if (cartItems && cartItems.length > 0) {
 
 
 document.addEventListener("DOMContentLoaded", function () {
-    const icon = document.querySelector('.icon');
-    const links = document.getElementById('myLinks');
-    icon.addEventListener('click', () => {
-        icon.classList.toggle('active');
-        links.classList.toggle('active');
-    });
+    
 
     const backToTopButton = document.querySelector(".back-to-top");
 

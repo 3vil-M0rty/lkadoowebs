@@ -22,6 +22,9 @@ document.addEventListener("DOMContentLoaded", function () {
     let currentPage = 1;
     let products = []; // Global variable to store fetched products
     let images = [];
+    let relations = [];
+    let terms = [];
+    let currentProducts;
     const cartItems = cartItemsStored != null ? JSON.parse(cartItemsStored) : [];
 
     // Fetch products function
@@ -48,6 +51,197 @@ document.addEventListener("DOMContentLoaded", function () {
             });
     }
 
+    // Fetch terms relations function
+    function fetchRelations() {
+        return fetch('get_terms_relations.php')
+            .then(response => response.json())
+            .then(data => {
+                relations = data; // Store fetched products globally
+            })
+            .catch(error => {
+                console.error('Error fetching relations:', error);
+            });
+    }
+
+    // Fetch terms relations function
+    function fetchTerms() {
+        return fetch('get_terms.php')
+            .then(response => response.json())
+            .then(data => {
+                terms = data; // Store fetched products globally
+            })
+            .catch(error => {
+                console.error('Error fetching terms:', error);
+            });
+    }
+    let cat_products = [];
+
+    /* PARFUMS */
+    let perfumes = [] /* keywords = parfums */
+    let perfumes_homme = [] /* keyword = Parfum Homme */
+    let perfumes_femme = [] /* key word = Parfums Femme */
+    let perfumes_niches = [] /* key word = parfum de niche*/
+    let perfumes_kids = [] /* key word = Parfum Enfant */
+    let perfumes_mixtes = []
+    let perfumes_hair = []
+    let perfumes_body = []
+
+
+    /* COFFRETS */
+    let coffrets = [] /* key word = Coffret, Coffret Parfum */
+    let coffret_homme = [] /* key word = Coffret Homme */
+    let coffret_femme = [] /* key word = coffret Femme */
+
+    /* corps et bains */
+    let corpsbains = []
+    let visages = []
+    let solaires = []
+    let lotions = []
+    let gommage = []
+    let nettoyants = []
+    let serum = []
+    let bronzage = []
+    let scorps = []
+    let hydratation = []
+    let cremescorps = []
+    let lait = []
+    let cremespieds = []
+    let cremesmains = []
+    let huilescorps = []
+    let gels = []
+    let savons = []
+
+
+    let makeup = [] /* key word = maquillage, Maquillage */
+    let accmakeup = []
+    let makeup_lips = [] /* key word = Rouges à lèvres, Rouge à lèvres golden, crayon à levres */
+    let levres = []
+    let baumes = []
+    let crayonslevres = []
+    let makeup_teint = [] /* crèmes teint et correcteurs, Teint, Fonds de teint, base de teint */
+    let baseteint = []
+    let fondsteint = []
+    let fards = []
+    let teintcorr = []
+    let blush = []
+    let poudre = []
+    let makeup_eyes = [] /* key words = Yeux, crayon & eyeliners */
+    let crayonsEyeliners =[]
+    let mascara = []
+    let cilsSourcils =[]
+    let ongles = []
+    let vernisOngles = []
+    let hair = [] /* key words = Soins Capillaire */
+    let hair_shampoo = [] /* keywords = shampoings */
+    let hair_after_shampoo = [] /* keywords = Après Shampoings */
+    let masques = []
+    let color = []
+    let hair_huile = [] /* key words = Huile */
+
+    function categorize(prods, relats, ters) {
+        prods.forEach(product => {
+            const termIds = relats
+                .filter(relation => relation.id === product.id)
+                .map(relation => relation.term_id);
+
+            function getTermNames(termIds, terms) {
+                return termIds.map(termId => {
+                    const term = terms.find(t => t.term_id === termId);
+                    return term ? term.name : null;
+                }).filter(name => name !== null);
+            }
+
+            const termNames = getTermNames(termIds, ters);
+            termNames.forEach(termName => {
+                if (termName.includes("Parfums")) {
+                    perfumes.push(product);
+                }
+                /* Parfums */
+                if (termName.includes("Parfum Homme") && !perfumes_homme.includes(product)) perfumes_homme.push(product);
+                if (termName.includes("Parfums Femme") && !perfumes_femme.includes(product)) perfumes_femme.push(product);
+                if (termName.includes("Parfums Mixtes") && !perfumes_mixtes.includes(product)) perfumes_mixtes.push(product);
+                if (termName.includes("parfum de niche") && !perfumes_niches.includes(product)) perfumes_niches.push(product);
+                if (termName.includes("Parfum Enfant") && !perfumes_kids.includes(product)) perfumes_kids.push(product);
+                if (termName.includes("Parfums pour cheveux") && !perfumes_hair.includes(product)) perfumes_hair.push(product);
+                if (termName.includes("Parfums pour Corps") && !perfumes_body.includes(product)) perfumes_body.push(product);
+
+                /* Coffrets */
+
+                if ((termName.includes("Coffret") || termName.includes("Coffret Parfum")) && !coffrets.includes(product)) coffrets.push(product);
+                if (termName.includes("Coffret Homme") && !coffret_homme.includes(product)) coffret_homme.push(product);
+                if (termName.includes("coffret Femme") && !coffret_femme.includes(product)) coffret_femme.push(product);
+
+                /* Corps et bain */
+
+                if ((termName.includes("Corps et bain")) && !corpsbains.includes(product)) corpsbains.push(product);
+                if ((termName.includes("Soins visage")) && !visages.includes(product)) visages.push(product);
+                if ((termName.includes("Écran solaire")) && !solaires.includes(product)) solaires.push(product);
+                if ((termName.includes("Lotion &amp; d\u00e9maquillant")) && !lotions.includes(product)) lotions.push(product);
+                if ((termName.includes("Gommage")) && !gommage.includes(product)) gommage.push(product);
+                if ((termName.includes("nettoyant")) && !nettoyants.includes(product)) nettoyants.push(product);
+                if ((termName.includes("Sérum visage")) && !serum.includes(product)) serum.push(product);
+                if ((termName.includes("Protection &amp; bronzage")) && !bronzage.includes(product)) bronzage.push(product);
+                if ((termName.includes("Hydratation corps")) && !hydratation.includes(product)) hydratation.push(product);
+                if ((termName.includes("Crèmes corps")) && !cremescorps.includes(product)) cremescorps.push(product);
+                if ((termName.includes("Lait Corps")) && !lait.includes(product)) lait.push(product);
+                if ((termName.includes("Crème pieds")) && !cremespieds.includes(product)) cremespieds.push(product);
+                if ((termName.includes("Crème mains")) && !cremesmains.includes(product)) cremesmains.push(product);
+                if ((termName.includes("Huiles corps")) && !huilescorps.includes(product)) huilescorps.push(product);
+                if ((termName.includes("Gels douche")) && !gels.includes(product)) gels.push(product);
+                if ((termName.includes("Savon")) && !savons.includes(product)) savons.push(product);
+                if ((termName.includes("Soins corps")) && !scorps.includes(product)) scorps.push(product);
+
+
+                if ((termName.includes("maquillage") || termName.includes("Maquillage")) && !makeup.includes(product)) makeup.push(product);
+                if ((termName.includes("accessoires maquillage")) && !accmakeup.includes(product)) accmakeup.push(product);
+
+                if ((termName.includes("Rouges \u00e0 l\u00e8vres") || termName.includes("Rouge \u00e0 l\u00e8vres golden") || termName.includes("crayons \u00e0 levres") || termName.includes("Baumes a l\u00e8vres") || termName.includes("L\u00e8vres")) && !makeup_lips.includes(product)) makeup_lips.push(product);
+
+                if ((termName.includes("Rouges \u00e0 l\u00e8vres") || termName.includes("Rouge \u00e0 l\u00e8vres golden")) && !levres.includes(product)) levres.push(product);
+                if ((termName.includes("Baumes a l\u00e8vres")) && !baumes.includes(product)) baumes.push(product);
+                if ((termName.includes("crayons \u00e0 levres")) && !crayonslevres.includes(product)) crayonslevres.push(product);
+
+                if ((termName.includes("crèmes teint et correcteurs") || termName.includes("Teint") || termName.includes("Fonds de teint") || termName.includes("base de teint")) && !makeup_teint.includes(product)) makeup_teint.push(product);
+                if ((termName.includes("base de teint")) && !baseteint.includes(product)) baseteint.push(product);
+                if ((termName.includes("fonds de teint")) && !fondsteint.includes(product)) fondsteint.push(product);
+                if ((termName.includes("Fards \u00e0 poupier &amp; Highlighters")) && !fards.includes(product)) fards.push(product);
+                if ((termName.includes("cr\u00e8mes teint et correcteurs")) && !teintcorr.includes(product)) teintcorr.push(product);
+                if ((termName.includes("Blush &amp; fards \u00e0 joues")) && !blush.includes(product)) blush.push(product);
+                if ((termName.includes("Blush &amp; fards \u00e0 joues") || termName.includes("BLUSH")) && !blush.includes(product)) blush.push(product);
+                if ((termName.includes("Palettes &amp; Poudre")) && !poudre.includes(product)) poudre.push(product);
+
+                if ((termName.includes("Yeux") || termName.includes("crayon &amp; eyeliners") || termName.includes("Mascara") || termName.includes("Cils et sourcils")) && !makeup_eyes.includes(product)) makeup_eyes.push(product);
+                if ((termName.includes("crayon &amp; eyeliners")) && !crayonsEyeliners.includes(product)) crayonsEyeliners.push(product);
+                if ((termName.includes("Cils et sourcils")) && !cilsSourcils.includes(product)) cilsSourcils.push(product);
+                if ((termName.includes("Mascara")) && !mascara.includes(product)) mascara.push(product);
+                if ((termName.includes("Ongles")) && !ongles.includes(product)) ongles.push(product);
+                if ((termName.includes("Vernis ongles")) && !vernisOngles.includes(product)) vernisOngles.push(product);
+                
+
+                if (termName.includes("Soins Capillaire") && !hair.includes(product)) hair.push(product);
+                if (termName.includes("shampoings") && !hair_shampoo.includes(product)) hair_shampoo.push(product);
+                if (termName.includes("Après Shampoings") && !hair_after_shampoo.includes(product)) hair_after_shampoo.push(product);
+                if (termName.includes("Masques") && !masques.includes(product)) masques.push(product);
+                if (termName.includes("Colorations") && !color.includes(product)) color.push(product);
+                
+                if ((termName.includes("Huile")) && !hair_huile.includes(product) && !huilescorps.includes(product)) hair_huile.push(product);
+
+            });
+        });
+    };
+
+    function addLinkListeners() {
+        document.querySelectorAll('.category-link').forEach(link => {
+            link.addEventListener('click', event => {
+                event.preventDefault();
+                const category = event.target.getAttribute('data-category');
+                const parentPage = event.target.getAttribute('data-parent');
+                window.location.href = `${parentPage}?category=${category}`;
+            });
+        });
+    }
+
+
     const urlParams = new URLSearchParams(window.location.search);
     const pageParam = urlParams.get('p');
     if (pageParam) {
@@ -57,17 +251,240 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
     // Fetch both products and images before rendering
-    Promise.all([fetchProducts(), fetchImages()]).then(() => {
-        updatePagination(); // Update pagination after both products and images are fetched
+    Promise.all([fetchProducts(), fetchImages(), fetchRelations(), fetchTerms()]).then(() => {
+        categorize(products, relations, terms);
+        // Get the pathname without the query parameters
+        addLinkListeners();
+
+        const url = new URL(window.location.href);
+        const pathname = url.pathname;
+        const searchParams = url.searchParams;
+        const categoryParam = searchParams.get('category');
+        // Determine the category of products based on the page name
+        if (pathname.includes('parfums.html') && !categoryParam) {
+            cat_products = perfumes;
+            currentProducts = perfumes;
+            updatePagination(cat_products);
+        }
+        else if (categoryParam === 'parfums-femmes') {
+            cat_products = perfumes_femme;
+            currentProducts = perfumes_femme;
+            updatePagination(cat_products);
+        } else if (categoryParam === 'parfums-hommes') {
+            cat_products = perfumes_homme;
+            currentProducts = perfumes_homme;
+            updatePagination(cat_products);
+        } else if (categoryParam === 'parfums-mixtes') {
+            cat_products = perfumes_mixtes;
+            currentProducts = perfumes_mixtes;
+            updatePagination(cat_products);
+        } else if (categoryParam === 'parfums-enfants') {
+            cat_products = perfumes_kids;
+            currentProducts = perfumes_kids;
+            updatePagination(cat_products);
+        } else if (categoryParam === 'parfums-de-niches') {
+            cat_products = perfumes_niches;
+            currentProducts = perfumes_niches;
+            updatePagination(cat_products);
+        } else if (categoryParam === 'parfums-cheveux') {
+            cat_products = perfumes_hair;
+            currentProducts = perfumes_hair;
+            updatePagination(cat_products);
+        } else if (categoryParam === 'parfums-corps') {
+            cat_products = perfumes_body;
+            currentProducts = perfumes_body;
+            updatePagination(cat_products);
+        } else if (pathname.includes('coffrets.html') && !categoryParam) {
+            cat_products = coffrets;
+            currentProducts = coffrets;
+            updatePagination(cat_products);
+        } else if (categoryParam === 'coffret-femme') {
+            cat_products = coffret_femme;
+            currentProducts = coffret_femme;
+            updatePagination(cat_products);
+        } else if (categoryParam === 'coffret-homme') {
+            cat_products = coffret_homme;
+            currentProducts = coffret_homme;
+            updatePagination(cat_products);
+        } else if (pathname.includes('corps-et-bains.html') && !categoryParam) {
+            cat_products = corpsbains;
+            currentProducts = corpsbains;
+            updatePagination(cat_products);
+        } else if (categoryParam === 'soins-visage') {
+            cat_products = visages
+            currentProducts = visages
+            updatePagination(cat_products)
+        } else if (categoryParam === 'ecrans-solaires') {
+            cat_products = solaires
+            currentProducts = solaires
+            updatePagination(cat_products)
+        } else if (categoryParam === 'lotions-demaquillants') {
+            cat_products = lotions
+            currentProducts = lotions
+            updatePagination(cat_products)
+        } else if (categoryParam === 'gommage') {
+            cat_products = gommage
+            currentProducts = gommage
+            updatePagination(cat_products)
+        } else if (categoryParam === 'nettoyants') {
+            cat_products = nettoyants
+            currentProducts = nettoyants
+            updatePagination(cat_products)
+        } else if (categoryParam === 'serums-visage') {
+            cat_products = serum
+            currentProducts = serum
+            updatePagination(cat_products)
+        } else if (categoryParam === 'protection-bronzage') {
+            cat_products = bronzage
+            currentProducts = bronzage
+            updatePagination(cat_products)
+        } else if (categoryParam === 'soins-corps') {
+            cat_products = scorps
+            currentProducts = scorps
+            updatePagination(cat_products);
+        } else if (categoryParam === 'hydratation-corps') {
+            cat_products = hydratation
+            currentProducts = hydratation
+            updatePagination(cat_products);
+        } else if (categoryParam === 'cremes-corps') {
+            cat_products = cremescorps
+            currentProducts = cremescorps
+            updatePagination(cat_products);
+        } else if (categoryParam === 'lait-corps') {
+            cat_products = lait
+            currentProducts = lait
+            updatePagination(cat_products);
+        } else if (categoryParam === 'cremes-pieds') {
+            cat_products = cremespieds
+            currentProducts = cremespieds
+            updatePagination(cat_products);
+        } else if (categoryParam === 'cremes-mains') {
+            cat_products = cremesmains
+            currentProducts = cremesmains
+            updatePagination(cat_products);
+        } else if (categoryParam === 'huiles-corps') {
+            cat_products = huilescorps
+            currentProducts = huilescorps
+            updatePagination(cat_products);
+        } else if (categoryParam === 'gels-douche') {
+            cat_products = gels
+            currentProducts = gels
+            updatePagination(cat_products);
+        } else if (categoryParam === 'savons') {
+            cat_products = savons
+            currentProducts = savons
+            updatePagination(cat_products);
+        } else if (pathname.includes('maquillage.html') && !categoryParam) {
+            cat_products = makeup;
+            currentProducts = makeup;
+            updatePagination(cat_products);
+        } else if (categoryParam === 'accessoires-maquillage') {
+            cat_products = accmakeup
+            currentProducts = accmakeup
+            updatePagination(cat_products);
+        } else if (categoryParam === 'teint') {
+            cat_products = makeup_teint
+            currentProducts = makeup_teint
+            updatePagination(cat_products);
+        } else if (categoryParam === 'base-teint') {
+            cat_products = baseteint
+            currentProducts = baseteint
+            updatePagination(cat_products);
+        } else if (categoryParam === 'fonds-teint') {
+            cat_products = fondsteint
+            currentProducts = fondsteint
+            updatePagination(cat_products);
+        } else if (categoryParam === 'fards-paupieres-highlighters') {
+            cat_products = fards
+            currentProducts = fards
+            updatePagination(cat_products);
+        } else if (categoryParam === 'cremes-teint-correcteurs') {
+            cat_products = teintcorr
+            currentProducts = teintcorr
+            updatePagination(cat_products);
+        } else if (categoryParam === 'blush-fards-joues') {
+            cat_products = blush
+            currentProducts = blush
+            updatePagination(cat_products);
+        } else if (categoryParam === 'palette-poudres') {
+            cat_products = poudre
+            currentProducts = poudre
+            updatePagination(cat_products);
+        } else if (categoryParam === 'levres') {
+            cat_products = makeup_lips
+            currentProducts = makeup_lips
+            updatePagination(cat_products);
+        } else if (categoryParam === 'rouges-levres') {
+            cat_products = levres
+            currentProducts = levres
+            updatePagination(cat_products)
+        } else if (categoryParam === 'baumes-levres') {
+            cat_products = baumes
+            currentProducts = baumes
+            updatePagination(cat_products)
+        } else if (categoryParam === 'crayons-levres') {
+            cat_products = crayonslevres
+            currentProducts = crayonslevres
+            updatePagination(cat_products)
+        } else if (categoryParam === 'yeux') {
+            cat_products = makeup_eyes
+            currentProducts = makeup_eyes
+            updatePagination(cat_products)
+        } else if (categoryParam === 'crayons-eyeliners') {
+            cat_products = crayonsEyeliners
+            currentProducts = crayonsEyeliners
+            updatePagination(cat_products)
+        } else if (categoryParam === 'mascara') {
+            cat_products = mascara
+            currentProducts = mascara
+            updatePagination(cat_products)
+        } else if (categoryParam === 'cils-sourcils') {
+            cat_products = cilsSourcils
+            currentProducts = cilsSourcils
+            updatePagination(cat_products)
+        } else if (categoryParam === 'ongles') {
+            cat_products = ongles
+            currentProducts = ongles
+            updatePagination(cat_products)
+        } else if (categoryParam === 'vernis-ongles') {
+            cat_products = vernisOngles
+            currentProducts = vernisOngles
+            updatePagination(cat_products)
+        } else if (pathname.includes('soins-capillaires.html') && !categoryParam) {
+            cat_products = hair;
+            currentProducts = hair;
+            updatePagination(cat_products);
+        }  else if (categoryParam === 'apres-shampoing') {
+            cat_products = hair_after_shampoo;
+            currentProducts = hair_after_shampoo;
+            updatePagination(cat_products);
+        } else if (categoryParam === 'shampoings') {
+            cat_products = hair_shampoo;
+            currentProducts = hair_shampoo;
+            updatePagination(cat_products);
+        } else if (categoryParam === 'apres-shampoing') {
+            cat_products = hair_after_shampoo;
+            currentProducts = hair_after_shampoo;
+            updatePagination(cat_products);
+        } else if (categoryParam === 'masques') {
+            cat_products = masques;
+            currentProducts = masques;
+            updatePagination(cat_products);
+        } else if (categoryParam === 'colorations') {
+            cat_products = color;
+            currentProducts = color;
+            updatePagination(cat_products);
+        } else if (categoryParam === 'huile-cheveux') {
+            cat_products = hair_huile;
+            currentProducts = hair_huile;
+            updatePagination(cat_products);
+        }
     });
 
+
+
     // Toggle navigation menu
-    const icon = document.querySelector('.icon');
-    const links = document.getElementById('myLinks');
-    icon.addEventListener('click', () => {
-        icon.classList.toggle('active');
-        links.classList.toggle('active');
-    });
+
 
     // Back to top button
     const backToTopButton = document.querySelector(".back-to-top");
@@ -85,16 +502,21 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
+
     // Render products function
-    function renderProducts(page) {
+    function renderProducts(prod, page) {
+
         productsContainer.innerHTML = '';
         const start = (page - 1) * productsPerPage;
         const end = start + productsPerPage;
-        const paginatedProducts = products.slice(start, end);
+
+
+
+
+        const paginatedProducts = prod.slice(start, end);
         paginatedProducts.forEach(product => {
             const primary_image_id = product.primary_image_id;
             let newImagepath;
-            console.log("thumbnail id: ", product.primary_image_id);
             const primaryImage = images.find(image => image.attachment_id === primary_image_id);
             if (primaryImage) {
                 let imagePath = primaryImage ? primaryImage.path : product.image;
@@ -104,15 +526,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 const imageName = imagePath.substring(imagePath.lastIndexOf('/') + 1);
 
                 // Create the new image path
-                newImagepath = "lkadoowebs/products_images/" + imageName;
+                newImagepath = "../../products_images/" + imageName;
 
             } else {
                 newImagepath = product.image;
-                console.log(product.name);
-                console.log(product.id);
-                console.log(primaryImage);
-                console.log(primary_image_id);
             }
+
 
             const productDiv = document.createElement('div');
             productDiv.className = 'product';
@@ -188,7 +607,6 @@ document.addEventListener("DOMContentLoaded", function () {
                     void cartCount.offsetWidth;
                     cartCount.classList.add('animate');
                     sessionStorage.setItem("cartItems", cartItemsString);
-                    console.log(cartItemsString);
                     sessionStorage.setItem("total", total);
                     sessionStorage.setItem("cartCount", totalAddedProducts);
                     sessionStorage.setItem("originaltotal", originaltotal);
@@ -214,7 +632,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const imagePath = primaryImagePath.substring(primaryImagePath.lastIndexOf('/') + 1);
 
         // Create HTML for primary images and option images
-        const imagePrimaryHTML = `<img class="primary-image" src="lkadoowebs/products_images/${imagePath}" alt="${product.name}" data-index="0">`;
+        const imagePrimaryHTML = `<img class="primary-image" src="../../products_images/${imagePath}" alt="${product.name}" data-index="0">`;
 
         const imageGalleryIdsString = product.image_gallery_ids;
 
@@ -225,7 +643,6 @@ document.addEventListener("DOMContentLoaded", function () {
         let imageGalleryIds;
         try {
             imageGalleryIds = JSON.parse(cleanedImageGalleryIdsString);
-            console.log(imageGalleryIds); // This will log the array of IDs
         } catch (error) {
             console.error("Failed to parse image_gallery_ids:", error);
             imageGalleryIds = [];
@@ -239,10 +656,9 @@ document.addEventListener("DOMContentLoaded", function () {
             return image.path.split('/').pop(); // Get the base name from the path
         });
         basePaths.unshift(imagePath);
-        console.log(basePaths);
 
         const imageOptionsHTML = basePaths.map((path, idx) => {
-            return `<div class="product-detail-image-option-container"><img src="lkadoowebs/products_images/${path}" alt="${product.name} images option" data-index="${idx + 1}"></div>`;
+            return `<div class="product-detail-image-option-container"><img src="../../products_images/${path}" alt="${product.name} images option" data-index="${idx + 1}"></div>`;
         }).join('');
 
         // Set the HTML content of productDetailDiv
@@ -348,7 +764,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const primaryImageEl = productDetailDiv.querySelector('.primary-image');
             let currentIndex = parseInt(primaryImageEl.getAttribute('data-index'));
             let newIndex = (currentIndex === 0) ? (basePaths.length - 1) : (currentIndex - 1);
-            primaryImageEl.setAttribute('src', `lkadoowebs/products_images/${basePaths[newIndex]}`);
+            primaryImageEl.setAttribute('src', `../../products_images/${basePaths[newIndex]}`);
             primaryImageEl.setAttribute('data-index', newIndex.toString());
         });
 
@@ -358,7 +774,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const primaryImageEl = productDetailDiv.querySelector('.primary-image');
             let currentIndex = parseInt(primaryImageEl.getAttribute('data-index'));
             let newIndex = (currentIndex === basePaths.length - 1) ? 0 : (currentIndex + 1);
-            primaryImageEl.setAttribute('src', `lkadoowebs/products_images/${basePaths[newIndex]}`);
+            primaryImageEl.setAttribute('src', `../../products_images/${basePaths[newIndex]}`);
             primaryImageEl.setAttribute('data-index', newIndex.toString());
         });
 
@@ -370,9 +786,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Render page numbers function
-    function renderPageNumbers() {
+    function renderPageNumbers(prod) {
         pageNumbersContainer.innerHTML = '';
-        const totalPages = Math.ceil(products.length / productsPerPage);
+        const totalPages = Math.ceil(prod.length / productsPerPage);
         const maxVisiblePages = 5; // Adjust the number of visible pages as needed
         const halfVisiblePages = Math.floor(maxVisiblePages / 2);
 
@@ -395,7 +811,7 @@ document.addEventListener("DOMContentLoaded", function () {
             pageNumber.textContent = i;
             pageNumber.addEventListener('click', () => {
                 currentPage = i;
-                updatePagination();
+                updatePagination(prod);
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             });
             if (i === currentPage) {
@@ -417,10 +833,11 @@ document.addEventListener("DOMContentLoaded", function () {
         url.searchParams.set('p', page);
         history.replaceState(null, '', url.toString());
     }
+
     // Update pagination function
-    function updatePagination() {
-        renderProducts(currentPage);
-        renderPageNumbers();
+    function updatePagination(prod) {
+        renderProducts(prod, currentPage);
+        renderPageNumbers(prod);
         updateURL(currentPage);
     }
 
@@ -428,20 +845,22 @@ document.addEventListener("DOMContentLoaded", function () {
     prevPageBtn.addEventListener('click', () => {
         if (currentPage > 1) {
             currentPage--;
-            updatePagination();
+            updatePagination(currentProducts);
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     });
 
     // Next page button event listener
     nextPageBtn.addEventListener('click', () => {
-        const totalPages = Math.ceil(products.length / productsPerPage);
+        const totalPages = Math.ceil(currentProducts.length / productsPerPage);
         if (currentPage < totalPages) {
             currentPage++;
-            updatePagination();
+            updatePagination(currentProducts);
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     });
+
+
 
     // Shopping cart click event listener (redirect to cart page)
     document.querySelector('.shopping-cart').addEventListener('click', function () {
